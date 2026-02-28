@@ -105,5 +105,52 @@
             "commercial": "Comercial",
             "land": "Terreno"
         }
+    },
+    "propertyDetails": {
+        "title": "Detalles de la Propiedad",
+        "showAllPhotos": "Mostrar todas",
+        "specs": {
+            "bedrooms": "Habitaciones",
+            "bathrooms": "Baños",
+            "area": "Área",
+            "parking": "Estacionamiento",
+            "spots": "Espacios"
+        },
+        "description": {
+            "title": "Descripción",
+            "showMore": "Mostrar más"
+        },
+        "amenities": {
+            "title": "Comodidades",
+            "ac": "Aire Acondicionado",
+            "pool": "Piscina",
+            "heating": "Calefacción Central",
+            "laundry": "Cuarto de Lavandería",
+            "gym": "Gimnasio",
+            "alarm": "Alarma"
+        },
+        "location": {
+            "title": "Ubicación",
+            "openInMaps": "Abrir en Maps"
+        },
+        "agent": {
+            "role": "Agente Senior",
+            "form": {
+                "name": "Nombre",
+                "email": "Correo electrónico",
+                "phone": "Teléfono",
+                "message": "Estoy interesado en esta propiedad...",
+                "send": "Enviar Mensaje",
+                "whatsapp": "Contactar por WhatsApp",
+                "terms": "Al enviar, aceptas nuestros Términos de Servicio"
+            }
+        },
+        "safety": {
+            "title": "Propiedad Verificada",
+            "description": "Este anuncio ha sido verificado por nuestro equipo en el lugar."
+        },
+        "similar": {
+            "title": "Propiedades Similares"
+        }
     }
 }

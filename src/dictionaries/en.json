@@ -105,5 +105,52 @@
             "commercial": "Commercial",
             "land": "Land"
         }
+    },
+    "propertyDetails": {
+        "title": "Property Detail",
+        "showAllPhotos": "Show all",
+        "specs": {
+            "bedrooms": "Bedrooms",
+            "bathrooms": "Bathrooms",
+            "area": "Area",
+            "parking": "Parking",
+            "spots": "Spots"
+        },
+        "description": {
+            "title": "Description",
+            "showMore": "Show more"
+        },
+        "amenities": {
+            "title": "Amenities",
+            "ac": "Air Conditioning",
+            "pool": "Swimming Pool",
+            "heating": "Central Heating",
+            "laundry": "Laundry Room",
+            "gym": "Gym",
+            "alarm": "Alarm"
+        },
+        "location": {
+            "title": "Location",
+            "openInMaps": "Open in Maps"
+        },
+        "agent": {
+            "role": "Senior Agent",
+            "form": {
+                "name": "Name",
+                "email": "Email",
+                "phone": "Phone",
+                "message": "I'm interested in this property...",
+                "send": "Send Message",
+                "whatsapp": "Contact via WhatsApp",
+                "terms": "By sending, you agree to our Terms of Service"
+            }
+        },
+        "safety": {
+            "title": "Verified Property",
+            "description": "This listing has been verified by our team on-site."
+        },
+        "similar": {
+            "title": "Similar Properties"
+        }
     }
 }
