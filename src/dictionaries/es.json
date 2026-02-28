@@ -65,8 +65,9 @@
         "rights": "Todos los derechos reservados."
     },
     "properties": {
-        "title": "Bienes Raíces y Casas en Venta en Nueva York, NY",
-        "breadcrumbs": "Inicio / Buscar / Nueva York",
+        "title": "Bienes Raíces y Casas en Venta en {{location}}",
+        "breadcrumbs": "Inicio / Buscar / {{location}}",
+        "allLocations": "Cualquier Lugar",
         "sortBy": "Ordenar por:",
         "sortNewest": "Agregados Recientemente",
         "sortHighToLow": "Precio (De Mayor a Menor)",

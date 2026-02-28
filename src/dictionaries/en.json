@@ -65,8 +65,9 @@
         "rights": "All rights reserved."
     },
     "properties": {
-        "title": "New York, NY Real Estate & Homes For Sale",
-        "breadcrumbs": "Home / Search / New York",
+        "title": "{{location}} Real Estate & Homes For Sale",
+        "breadcrumbs": "Home / Search / {{location}}",
+        "allLocations": "Any Location",
         "sortBy": "Sort by:",
         "sortNewest": "Newest Listings",
         "sortHighToLow": "Price (High to Low)",
