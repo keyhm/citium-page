@@ -1,0 +1,109 @@
+{
+    "header": {
+        "buy": "Comprar",
+        "rent": "Alquilar",
+        "sell": "Vender",
+        "agents": "Agentes",
+        "logIn": "Iniciar Sesión",
+        "listProperty": "Publicar Propiedad"
+    },
+    "hero": {
+        "title1": "Descubre Tu",
+        "title2": "Santuario Perfecto",
+        "description": "Explora listados exclusivos en los vecindarios más deseados del mundo. Experimenta un viaje sin contratiempos hacia tu nuevo hogar.",
+        "location": "Ubicación",
+        "locationPlaceholder": "Ciudad, C.P. o Dirección",
+        "type": "Tipo",
+        "typeAny": "Cualquier Propiedad",
+        "typeHouse": "Casa",
+        "typeApartment": "Apartamento",
+        "typeCondo": "Condominio",
+        "typeVilla": "Villa",
+        "priceRange": "Rango de Precio",
+        "priceAny": "Cualquier Precio",
+        "search": "Buscar"
+    },
+    "about": {
+        "subtitle": "Quiénes Somos",
+        "title": "Redefiniendo los Bienes Raíces de Lujo",
+        "p1": "Conectamos clientes exigentes con las mejores propiedades y los agentes más experimentados del mercado. Nuestro enfoque se basa en la transparencia, el servicio personalizado y una profunda comprensión del mercado de lujo.",
+        "p2": "Ya sea que esté comprando su primera casa o buscando una inversión lucrativa, nuestro equipo brinda orientación experta en cada paso del camino. Experimente un proceso fluido desde la búsqueda hasta el cierre.",
+        "link": "Conoce Más Sobre Nosotros",
+        "feature1": "Listados Exclusivos",
+        "feature1Desc": "Acceda a propiedades fuera del mercado y joyas ocultas que no encontrará en ningún otro lugar.",
+        "feature2": "Guía Experta",
+        "feature2Desc": "Agentes de primer nivel dedicados a su éxito con un profundo conocimiento del mercado.",
+        "feature3": "Proceso Impecable",
+        "feature3Desc": "Desde la búsqueda inicial hasta el cierre final, manejamos cada detalle con precisión.",
+        "feature4": "Soporte 24/7",
+        "feature4Desc": "Nuestro equipo dedicado siempre está disponible para responder a sus preguntas."
+    },
+    "featured": {
+        "subtitle": "Curado Para Ti",
+        "title": "Propiedades Destacadas",
+        "viewAll": "Ver Todas las Propiedades",
+        "forSale": "En Venta",
+        "forRent": "En Alquiler",
+        "new": "Nuevo",
+        "beds": "Hab",
+        "baths": "Baños",
+        "sqft": "Pies Cuadrados",
+        "mo": "/mes"
+    },
+    "footer": {
+        "description": "Conectándote con las mejores propiedades y los agentes más experimentados. Tu viaje hacia el hogar perfecto comienza aquí.",
+        "properties": "Propiedades",
+        "buyHome": "Comprar Casa",
+        "rentHome": "Alquilar Casa",
+        "sellHome": "Vender Casa",
+        "newDev": "Nuevos Desarrollos",
+        "company": "Empresa",
+        "aboutUs": "Sobre Nosotros",
+        "careers": "Carreras",
+        "contact": "Contacto",
+        "contactUs": "Contáctenos",
+        "rights": "Todos los derechos reservados."
+    },
+    "properties": {
+        "title": "Bienes Raíces y Casas en Venta en Nueva York, NY",
+        "breadcrumbs": "Inicio / Buscar / Nueva York",
+        "sortBy": "Ordenar por:",
+        "sortNewest": "Agregados Recientemente",
+        "sortHighToLow": "Precio (De Mayor a Menor)",
+        "sortLowToHigh": "Precio (De Menor a Mayor)",
+        "quickFilters": {
+            "price": "Precio",
+            "forSale": "En Venta",
+            "bedsBaths": "Hab. y Baños",
+            "homeType": "Tipo de Casa",
+            "saveSearch": "Guardar Búsqueda"
+        },
+        "sidebar": {
+            "title": "Filtros",
+            "reset": "Restablecer Todos",
+            "buy": "Comprar",
+            "rent": "Alquilar",
+            "sold": "Vendido",
+            "propertyType": "Tipo de Propiedad",
+            "typeHouses": "Casas / Apartamentos",
+            "typeCommercial": "Comercial",
+            "typeLand": "Terrenos / Fincas",
+            "priceRange": "Rango de Precio",
+            "min": "$ Min",
+            "max": "$ Max",
+            "bedrooms": "Habitaciones",
+            "any": "Cualquiera",
+            "amenities": "Comodidades",
+            "pool": "Piscina",
+            "garage": "Garaje",
+            "garden": "Jardín",
+            "waterfront": "Frente al agua"
+        },
+        "tags": {
+            "house": "Casa",
+            "apartment": "Apartamento",
+            "commercial": "Comercial",
+            "land": "Terreno"
+        }
+    }
+}

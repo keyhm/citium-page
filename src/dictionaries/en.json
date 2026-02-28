@@ -1,0 +1,109 @@
+{
+    "header": {
+        "buy": "Buy",
+        "rent": "Rent",
+        "sell": "Sell",
+        "agents": "Agents",
+        "logIn": "Log In",
+        "listProperty": "List Property"
+    },
+    "hero": {
+        "title1": "Discover Your",
+        "title2": "Perfect Sanctuary",
+        "description": "Explore exclusive listings in the world's most desirable neighborhoods. Experience a seamless journey home.",
+        "location": "Location",
+        "locationPlaceholder": "City, Zip, or Address",
+        "type": "Type",
+        "typeAny": "Any Property",
+        "typeHouse": "House",
+        "typeApartment": "Apartment",
+        "typeCondo": "Condo",
+        "typeVilla": "Villa",
+        "priceRange": "Price Range",
+        "priceAny": "Any Price",
+        "search": "Search"
+    },
+    "about": {
+        "subtitle": "Who We Are",
+        "title": "Redefining Luxury Real Estate",
+        "p1": "We connect discerning clients with the finest properties and the most experienced agents in the market. Our approach is grounded in transparency, personalized service, and a deep understanding of the luxury market.",
+        "p2": "Whether you are buying your first home or seeking a lucrative investment, our team provides expert guidance every step of the way. Experience a seamless journey from search to closing.",
+        "link": "Learn More About Us",
+        "feature1": "Exclusive Listings",
+        "feature1Desc": "Access off-market properties and hidden gems you won't find anywhere else.",
+        "feature2": "Expert Guidance",
+        "feature2Desc": "Top-tier agents dedicated to your success with deep market insights.",
+        "feature3": "Seamless Process",
+        "feature3Desc": "From initial search to final closing, we handle every detail with precision.",
+        "feature4": "24/7 Support",
+        "feature4Desc": "Our dedicated team is always available to answer your questions."
+    },
+    "featured": {
+        "subtitle": "Curated For You",
+        "title": "Featured Properties",
+        "viewAll": "View All Properties",
+        "forSale": "For Sale",
+        "forRent": "For Rent",
+        "new": "New",
+        "beds": "Beds",
+        "baths": "Baths",
+        "sqft": "Sq Ft",
+        "mo": "/mo"
+    },
+    "footer": {
+        "description": "Connecting you with the finest properties and most experienced agents. Your journey to the perfect home starts here.",
+        "properties": "Properties",
+        "buyHome": "Buy Home",
+        "rentHome": "Rent Home",
+        "sellHome": "Sell Home",
+        "newDev": "New Developments",
+        "company": "Company",
+        "aboutUs": "About Us",
+        "careers": "Careers",
+        "contact": "Contact",
+        "contactUs": "Contact Us",
+        "rights": "All rights reserved."
+    },
+    "properties": {
+        "title": "New York, NY Real Estate & Homes For Sale",
+        "breadcrumbs": "Home / Search / New York",
+        "sortBy": "Sort by:",
+        "sortNewest": "Newest Listings",
+        "sortHighToLow": "Price (High to Low)",
+        "sortLowToHigh": "Price (Low to High)",
+        "quickFilters": {
+            "price": "Price",
+            "forSale": "For Sale",
+            "bedsBaths": "Beds & Baths",
+            "homeType": "Home Type",
+            "saveSearch": "Save Search"
+        },
+        "sidebar": {
+            "title": "Filters",
+            "reset": "Reset All",
+            "buy": "Buy",
+            "rent": "Rent",
+            "sold": "Sold",
+            "propertyType": "Property Type",
+            "typeHouses": "Houses / Apartments",
+            "typeCommercial": "Commercial",
+            "typeLand": "Land / Farms",
+            "priceRange": "Price Range",
+            "min": "$ Min",
+            "max": "$ Max",
+            "bedrooms": "Bedrooms",
+            "any": "Any",
+            "amenities": "Amenities",
+            "pool": "Pool",
+            "garage": "Garage",
+            "garden": "Garden",
+            "waterfront": "Waterfront"
+        },
+        "tags": {
+            "house": "House",
+            "apartment": "Apartment",
+            "commercial": "Commercial",
+            "land": "Land"
+        }
+    }
+}
