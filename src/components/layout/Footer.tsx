@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Footer({ dict }: { dict: any }) {
     return (
         <footer className="bg-[#1A2B48] text-white pt-16 pb-8">
@@ -6,10 +8,14 @@ export default function Footer({ dict }: { dict: any }) {
                     {/* Brand */}
                     <div className="flex flex-col gap-4">
                         <div className="flex items-center gap-3">
-                            <div className="flex size-8 items-center justify-center rounded-lg bg-white text-primary">
-                                <span className="material-symbols-outlined text-[20px]">real_estate_agent</span>
-                            </div>
-                            <h2 className="font-display text-xl font-bold tracking-tight">Estate</h2>
+                            <Image
+                                src="/logo.png"
+                                alt="Estate Logo"
+                                width={250}
+                                height={75}
+                                className="h-10 md:h-12 w-auto object-contain scale-[2.4] md:scale-[3.0] origin-left"
+                                priority
+                            />
                         </div>
                         <p className="text-sm leading-relaxed text-gray-300">
                             {dict.footer.description}
@@ -21,8 +27,6 @@ export default function Footer({ dict }: { dict: any }) {
                         <ul className="flex flex-col gap-3 text-sm text-gray-300">
                             <li><a className="hover:text-white transition-colors" href="#">{dict.footer.buyHome}</a></li>
                             <li><a className="hover:text-white transition-colors" href="#">{dict.footer.rentHome}</a></li>
-                            <li><a className="hover:text-white transition-colors" href="#">{dict.footer.sellHome}</a></li>
-                            <li><a className="hover:text-white transition-colors" href="#">{dict.footer.newDev}</a></li>
                         </ul>
                     </div>
                     {/* Links 2 */}
@@ -40,11 +44,11 @@ export default function Footer({ dict }: { dict: any }) {
                         <ul className="flex flex-col gap-4 text-sm text-gray-300">
                             <li className="flex items-start gap-3">
                                 <span className="material-symbols-outlined text-[20px] text-secondary">location_on</span>
-                                <span>1234 Innovation Dr.<br />Suite 100<br />San Francisco, CA 94103</span>
+                                <span>Pereira, Colombia</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-[20px] text-secondary">phone</span>
-                                <span>(555) 123-4567</span>
+                                <span>(+57) 321 891 1436</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-[20px] text-secondary">mail</span>

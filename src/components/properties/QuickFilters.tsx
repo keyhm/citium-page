@@ -41,10 +41,7 @@ export default function QuickFilters({ dict }: { dict: any }) {
                 <span className="material-symbols-outlined text-[18px]">expand_more</span>
             </button>
             <div className="flex-1"></div>
-            <button className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
-                <span className="material-symbols-outlined text-[20px]">bookmark</span>
-                <span>{dict.properties.quickFilters.saveSearch}</span>
-            </button>
+
         </div>
     );
 }

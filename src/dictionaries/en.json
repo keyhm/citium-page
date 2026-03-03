@@ -2,10 +2,7 @@
     "header": {
         "buy": "Buy",
         "rent": "Rent",
-        "sell": "Sell",
-        "agents": "Agents",
-        "logIn": "Log In",
-        "listProperty": "List Property"
+        "listProperty": "Contact Advisor"
     },
     "hero": {
         "title1": "Discover Your",
@@ -39,7 +36,7 @@
         "feature4Desc": "Our dedicated team is always available to answer your questions."
     },
     "featured": {
-        "subtitle": "Curated For You",
+        "subtitle": "Thinking For You",
         "title": "Featured Properties",
         "viewAll": "View All Properties",
         "forSale": "For Sale",
@@ -56,7 +53,6 @@
         "buyHome": "Buy Home",
         "rentHome": "Rent Home",
         "sellHome": "Sell Home",
-        "newDev": "New Developments",
         "company": "Company",
         "aboutUs": "About Us",
         "careers": "Careers",
@@ -76,15 +72,13 @@
             "price": "Price",
             "forSale": "For Sale",
             "bedsBaths": "Beds & Baths",
-            "homeType": "Home Type",
-            "saveSearch": "Save Search"
+            "homeType": "Home Type"
         },
         "sidebar": {
             "title": "Filters",
             "reset": "Reset All",
             "buy": "Buy",
             "rent": "Rent",
-            "sold": "Sold",
             "propertyType": "Property Type",
             "typeHouses": "Houses / Apartments",
             "typeCommercial": "Commercial",

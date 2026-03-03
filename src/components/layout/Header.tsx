@@ -17,14 +17,11 @@ export default function Header({ dict, locale }: { dict: any; locale: string }) 
                     />
                 </Link>
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors" href={`/${locale}/properties`}>{dict.header.buy}</Link>
-                    <a className="text-sm font-medium text-text-main hover:text-primary transition-colors" href="#">{dict.header.rent}</a>
-                    <a className="text-sm font-medium text-text-main hover:text-primary transition-colors" href="#">{dict.header.sell}</a>
-                    <a className="text-sm font-medium text-text-main hover:text-primary transition-colors" href="#">{dict.header.agents}</a>
+                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors" href={`/${locale}/properties?filter=sale`}>{dict.header.buy}</Link>
+                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors" href={`/${locale}/properties?filter=rent`}>{dict.header.rent}</Link>
                 </nav>
                 <div className="flex items-center gap-4">
                     <LanguageSwitcher />
-                    <button className="hidden md:flex text-sm font-medium text-text-main hover:text-primary transition-colors">{dict.header.logIn}</button>
                     <button className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                         {dict.header.listProperty}
                     </button>
