@@ -2,7 +2,7 @@
     "header": {
         "buy": "Buy",
         "rent": "Rent",
-        "listProperty": "Contact Advisor"
+        "contactAgent": "Contact Advisor"
     },
     "hero": {
         "title1": "Discover Your",
@@ -11,7 +11,8 @@
         "location": "Location",
         "locationPlaceholder": "City, Zip, or Address",
         "type": "Type",
-        "typeAny": "Any Property",
+        "typeAny": "All Properties",
+        "locationAny": "All Locations",
         "typeHouse": "House",
         "typeApartment": "Apartment",
         "typeCondo": "Condo",
@@ -41,6 +42,7 @@
         "viewAll": "View All Properties",
         "forSale": "For Sale",
         "forRent": "For Rent",
+        "forSaleRent": "Sale / Rent",
         "new": "New",
         "beds": "Beds",
         "baths": "Baths",
@@ -70,7 +72,11 @@
         "sortLowToHigh": "Price (Low to High)",
         "quickFilters": {
             "price": "Price",
+            "priceSale": "Sale Price",
+            "priceRent": "Rent Price",
             "forSale": "For Sale",
+            "forRent": "For Rent",
+            "forSaleRent": "Sale / Rent",
             "bedsBaths": "Beds & Baths",
             "homeType": "Home Type"
         },
@@ -80,6 +86,7 @@
             "buy": "Buy",
             "rent": "Rent",
             "propertyType": "Property Type",
+            "typeAll": "All Properties",
             "typeHouses": "Houses / Apartments",
             "typeCommercial": "Commercial",
             "typeLand": "Land / Farms",
@@ -87,7 +94,8 @@
             "min": "$ Min",
             "max": "$ Max",
             "bedrooms": "Bedrooms",
-            "any": "Any",
+            "bathrooms": "Bathrooms",
+            "any": "All",
             "amenities": "Amenities",
             "pool": "Pool",
             "garage": "Garage",
@@ -98,7 +106,13 @@
             "house": "House",
             "apartment": "Apartment",
             "commercial": "Commercial",
-            "land": "Land"
+            "land": "Land",
+            "Studio": "Studio",
+            "local": "Local",
+            "finca": "Farm",
+            "edificio": "Building",
+            "bodega": "Warehouse",
+            "consultorio": "Office"
         }
     },
     "propertyDetails": {
@@ -129,13 +143,14 @@
             "openInMaps": "Open in Maps"
         },
         "agent": {
-            "role": "Senior Agent",
+            "role": "Agent",
             "form": {
                 "name": "Name",
                 "email": "Email",
                 "phone": "Phone",
                 "message": "I'm interested in this property...",
                 "send": "Send Message",
+                "want": "Want to know more?",
                 "whatsapp": "Contact via WhatsApp",
                 "terms": "By sending, you agree to our Terms of Service"
             }

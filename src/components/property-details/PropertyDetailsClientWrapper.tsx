@@ -45,10 +45,8 @@ export default function PropertyDetailsClientWrapper({
     // Process properties based on translation needs
     const processedProperty = {
         ...property,
-        pricePerSqm: locale === 'es' ? "$8,500/m²" : "$8,500/sqm",
         parkingText: locale === 'es' ? `${property.parking} Espacios` : `${property.parking} Spots`,
         sqftText: locale === 'es' ? `${property.area} m²` : `${property.area} Sq Ft`,
-        // We mock description based on the HTML template paragraph breaks for now
         description: property.description.split('\n\n')
     };
 
@@ -61,7 +59,7 @@ export default function PropertyDetailsClientWrapper({
                 </a>
                 <span className="text-gray-400 material-symbols-outlined text-[16px]">chevron_right</span>
                 <a className="text-text-muted hover:text-primary transition-colors" href={`/${locale}/properties`}>
-                    {dict.properties.quickFilters?.forSale || "Properties"}
+                    {dict.properties.quickFilters?.forSaleRent || dict.properties.quickFilters?.forSale || "Properties"}
                 </a>
                 <span className="text-gray-400 material-symbols-outlined text-[16px]">chevron_right</span>
                 <span className="text-text-main font-medium">{processedProperty.title}</span>
@@ -105,7 +103,7 @@ export default function PropertyDetailsClientWrapper({
                 {/* Sidebar Sticky Column */}
                 <div className="lg:col-span-4 relative">
                     <div className="sticky top-24 space-y-6">
-                        <AgentContactForm dict={dict} />
+                        <AgentContactForm dict={dict} property={processedProperty} locale={locale} />
 
                         {/* Mini Safety Card */}
                         <div className="bg-background-light rounded-lg p-4 flex gap-3 items-start border border-gray-200">

@@ -1,14 +1,53 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+import { motion, useAnimationControls } from 'framer-motion';
 import PropertyCard from '@/components/shared/PropertyCard';
 import { useFeaturedProperties } from '@/hooks/useProperties';
 
-export default function FeaturedProperties({ dict }: { dict: any }) {
+export default function FeaturedProperties({ dict, locale }: { dict: any; locale: string }) {
     const { data: properties, isLoading, isError } = useFeaturedProperties();
+    const carouselControls = useAnimationControls();
+    const isPausedRef = useRef(false);
+
+    const items = properties ? [...properties, ...properties] : [];
+
+    const startCarousel = async () => {
+        if (items.length === 0 || isPausedRef.current) return;
+
+        await carouselControls.start({
+            x: ["0%", "-50%"],
+            transition: {
+                duration: 20,
+                ease: "linear",
+            },
+        });
+
+        carouselControls.set({ x: "0%" });
+
+        if (!isPausedRef.current) {
+            startCarousel();
+        }
+    };
+
+    useEffect(() => {
+        startCarousel();
+    }, [items.length]);
+
+    const handleMouseEnter = () => {
+        isPausedRef.current = true;
+        carouselControls.stop();
+    };
+
+    const handleMouseLeave = () => {
+        isPausedRef.current = false;
+        startCarousel(); // reinicia animación
+    };
 
     return (
         <section className="bg-background-light px-6 py-20 lg:py-28">
             <div className="mx-auto max-w-7xl">
+
                 <div className="mb-12 flex flex-col items-center justify-between gap-4 md:flex-row">
                     <div>
                         <div className="flex items-center gap-2 mb-2 md:mb-0">
@@ -17,7 +56,11 @@ export default function FeaturedProperties({ dict }: { dict: any }) {
                         </div>
                         <h2 className="font-display text-3xl font-bold text-text-main md:text-4xl">{dict.featured.title}</h2>
                     </div>
-                    <a className="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-text-main transition-colors hover:border-primary hover:text-primary" href="#">
+
+                    <a
+                        className="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-text-main transition-colors hover:border-primary hover:text-primary"
+                        href={`/${locale}/properties`}
+                    >
                         {dict.featured.viewAll}
                     </a>
                 </div>
@@ -34,15 +77,28 @@ export default function FeaturedProperties({ dict }: { dict: any }) {
                     </div>
                 )}
 
-                {!isLoading && !isError && properties && (
-                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {properties.map((property) => (
-                            <PropertyCard
-                                key={property.id}
-                                {...property}
-                                dict={dict}
-                            />
-                        ))}
+                {!isLoading && !isError && properties && properties.length > 0 && (
+                    <div
+                        className="overflow-hidden"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        <motion.div animate={carouselControls} className="flex gap-8">
+                            {items.map((property, index) => (
+                                <div
+                                    key={`${property.id}-${index}`}
+                                    className="shrink-0 w-full sm:w-80 md:w-96"
+                                >
+                                    <PropertyCard {...property} dict={dict} />
+                                </div>
+                            ))}
+                        </motion.div>
+                    </div>
+                )}
+
+                {!isLoading && !isError && (!properties || properties.length === 0) && (
+                    <div className="text-center text-gray-400 py-10">
+                        No properties available.
                     </div>
                 )}
             </div>

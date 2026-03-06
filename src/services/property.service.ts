@@ -20,14 +20,50 @@ const mapStrapiToProperty = (item: any): Property => {
         });
     }
 
+    // determine primary display price and normalized type
+    // we look at the explicit sale/rent price fields first; Strapi sometimes
+    // populates the generic `price` which is typically used for sale values
+    // but may be missing when the record is rent-only, so we treat that as a
+    // fallback.  Computing the type from the actual price fields ensures the
+    // toggle filter behaviour stays in sync with the data.
+    const salePrice = attr.priceSale || '';
+    const rentPrice = attr.priceRent || '';
+    const genericPrice = attr.price || '';
+
+    let displayPrice = '';
+    let typeVal: 'sale' | 'rent' | 'sale_rent' = attr.type as any || 'sale';
+
+    if (salePrice && rentPrice) {
+        // has both prices
+        displayPrice = `${salePrice} / ${rentPrice}`;
+        typeVal = 'sale_rent';
+    } else if (rentPrice) {
+        displayPrice = rentPrice;
+        typeVal = 'rent';
+    } else if (salePrice) {
+        displayPrice = salePrice;
+        typeVal = 'sale';
+    } else if (genericPrice) {
+        displayPrice = genericPrice;
+        // honour explicit type only if it matches one of the two modes
+        if (typeVal === 'rent' || typeVal === 'sale_rent') {
+            // keep as-is
+        } else {
+            typeVal = 'sale';
+        }
+    }
+
     return {
         id: item.documentId || item.id?.toString() || '',
         title: attr.title || '',
         description: attr.description || '',
-        price: attr.price || '',
+        price: displayPrice,
+        priceSale: attr.priceSale || undefined,
+        priceRent: attr.priceRent || undefined,
         location: attr.location || '',
-        type: attr.type || 'sale',
-        category: attr.category || 'house',
+        type: typeVal,
+        // Strapi now uses Spanish enum values; fall back to a generic 'casa' if missing
+        category: attr.category || 'casa',
         beds: attr.beds || 0,
         baths: attr.baths || 0,
         area: attr.area || 0,
@@ -44,6 +80,8 @@ const mapToCardDTO = (p: Property): PropertyCardDTO => ({
     id: p.id,
     title: p.title,
     price: p.price,
+    priceSale: p.priceSale,
+    priceRent: p.priceRent,
     location: p.location,
     type: p.type,
     category: p.category,
@@ -61,9 +99,16 @@ export const propertyService = {
         type?: string;
         category?: string;
         location?: string;
+        // generic price range (used when type is sale or rent)
         minPrice?: string;
         maxPrice?: string;
+        // when the UI is in "sale_rent" mode we expose explicit fields
+        minPriceSale?: string;
+        maxPriceSale?: string;
+        minPriceRent?: string;
+        maxPriceRent?: string;
         beds?: string;
+        baths?: string;
         amenities?: string[];
         page?: number;
         pageSize?: number;
@@ -95,34 +140,82 @@ export const propertyService = {
                     params.append('filters[location][$contains]', filters.location);
                 }
                 if (filters.type) {
-                    params.append('filters[type][$eq]', filters.type);
+                    // Filter based on price field presence to determine listing mode
+                    const t = filters.type;
+                    if (t === 'sale') {
+                        // Sale: only properties with priceSale set
+                        params.append('filters[priceSale][$notNull]', 'true');
+                    } else if (t === 'rent') {
+                        // Rent: only properties with priceRent set
+                        params.append('filters[priceRent][$notNull]', 'true');
+                    } else if (t === 'sale_rent') {
+                        // Sale & Rent: properties with both sale and rent prices
+                        params.append('filters[priceSale][$notNull]', 'true');
+                        params.append('filters[priceRent][$notNull]', 'true');
+                    } else {
+                        params.append('filters[type][$eq]', t);
+                    }
                 }
 
                 if (filters.category && filters.category !== 'all') {
-                    // Split if multiple comma-separated categories are passed somehow, otherwise just append
+                    // Strapi expects a comma-separated list for $in filters;
+                    // previous implementation appended indexed params which are ignored,
+                    // leading to no filtering when a category was selected.
                     const categories = filters.category.split(',');
-                    categories.forEach((cat, idx) => {
-                        params.append(`filters[category][$in][${idx}]`, cat);
-                    });
+                    params.append('filters[category][$in]', categories.join(','));
                 }
 
-                // Price Range
+                // Price Range (generic) - filter properties by sale or generic price
+                // Strapi doesn't have a single numeric price field, so we filter on priceSale/price fields
                 if (filters.minPrice) {
                     const min = parseInt(filters.minPrice.replace(/\D/g, ''));
-                    // Note: If you saved price as string in Strapi "$1,200", filtering greater/less than won't work perfectly on DB side
-                    // Ideally you want an integer field if doing range queries, but this is the syntax
-                    params.append('filters[priceNumber][$gte]', min.toString());
+                    params.append('filters[priceSale][$gte]', min.toString());
                 }
-
                 if (filters.maxPrice) {
                     const max = parseInt(filters.maxPrice.replace(/\D/g, ''));
-                    params.append('filters[priceNumber][$lte]', max.toString());
+                    params.append('filters[priceSale][$lte]', max.toString());
                 }
 
-                // Minimum Beds
+                // specialized ranges when both sale and rent may be shown
+                if (filters.minPriceSale) {
+                    const min = parseInt(filters.minPriceSale.replace(/\D/g, ''));
+                    params.append('filters[priceSale][$gte]', min.toString());
+                }
+                if (filters.maxPriceSale) {
+                    const max = parseInt(filters.maxPriceSale.replace(/\D/g, ''));
+                    params.append('filters[priceSale][$lte]', max.toString());
+                }
+                if (filters.minPriceRent) {
+                    const min = parseInt(filters.minPriceRent.replace(/\D/g, ''));
+                    params.append('filters[priceRent][$gte]', min.toString());
+                }
+                if (filters.maxPriceRent) {
+                    const max = parseInt(filters.maxPriceRent.replace(/\D/g, ''));
+                    params.append('filters[priceRent][$lte]', max.toString());
+                }
+
+                // Beds filter
                 if (filters.beds && filters.beds !== 'any') {
-                    const minBeds = parseInt(filters.beds);
-                    params.append('filters[beds][$gte]', minBeds.toString());
+                    const bedsValue = parseInt(filters.beds);
+                    if (bedsValue === 4) {
+                        // For 4+, filter beds >= 4
+                        params.append('filters[beds][$gte]', bedsValue.toString());
+                    } else {
+                        // For 1,2,3, filter exactly that number
+                        params.append('filters[beds][$eq]', bedsValue.toString());
+                    }
+                }
+
+                // Baths filter
+                if (filters.baths && filters.baths !== 'any') {
+                    const bathsValue = parseInt(filters.baths);
+                    if (bathsValue === 4) {
+                        // For 4+, filter baths >= 4
+                        params.append('filters[baths][$gte]', bathsValue.toString());
+                    } else {
+                        // For 1,2,3, filter exactly that number
+                        params.append('filters[baths][$eq]', bathsValue.toString());
+                    }
                 }
 
                 // Amenities
@@ -134,7 +227,13 @@ export const propertyService = {
                 }
             }
 
-            const res = await fetch(`${STRAPI_URL}/api/properties?${params.toString()}`, {
+            const url = `${STRAPI_URL}/api/properties?${params.toString()}`;
+            // debug: log the generated URL so issues with filter encoding can
+            // be observed in the browser console
+            if (process.env.NODE_ENV === 'development') {
+                console.debug('PropertyService query URL:', url);
+            }
+            const res = await fetch(url, {
                 cache: 'no-store'
             });
             if (!res.ok) throw new Error(`Strapi response error: ${res.status}`);

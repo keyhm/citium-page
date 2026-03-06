@@ -6,8 +6,8 @@ import '../globals.css';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
 
 export const metadata: Metadata = {
-    title: 'Estate - Find Your Perfect Home',
-    description: 'Discover your perfect sanctuary with Estate.',
+    title: 'Citium - Gestión Inmobiliaria',
+    description: 'Citium es una plataforma de gestión inmobiliaria que conecta compradores, vendedores y agentes para facilitar transacciones eficientes y transparentes.',
 };
 
 export async function generateStaticParams() {

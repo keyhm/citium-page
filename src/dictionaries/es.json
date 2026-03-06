@@ -2,7 +2,7 @@
     "header": {
         "buy": "Comprar",
         "rent": "Alquilar",
-        "listProperty": "Contactar asesor"
+        "contactAgent": "Contactar asesor"
     },
     "hero": {
         "title1": "Descubre Tu",
@@ -11,7 +11,8 @@
         "location": "Ubicación",
         "locationPlaceholder": "Ciudad, C.P. o Dirección",
         "type": "Tipo",
-        "typeAny": "Cualquier Propiedad",
+        "typeAny": "Todas las Propiedades",
+        "locationAny": "Todas las Ubicaciones",
         "typeHouse": "Casa",
         "typeApartment": "Apartamento",
         "typeCondo": "Condominio",
@@ -41,6 +42,7 @@
         "viewAll": "Ver Todas las Propiedades",
         "forSale": "En Venta",
         "forRent": "En Alquiler",
+        "forSaleRent": "Venta / Alquiler",
         "new": "Nuevo",
         "beds": "Hab",
         "baths": "Baños",
@@ -70,7 +72,11 @@
         "sortLowToHigh": "Precio (De Menor a Mayor)",
         "quickFilters": {
             "price": "Precio",
+            "priceSale": "Precio de Venta",
+            "priceRent": "Precio de Alquiler",
             "forSale": "En Venta",
+            "forRent": "En Alquiler",
+            "forSaleRent": "Venta / Alquiler",
             "bedsBaths": "Hab. y Baños",
             "homeType": "Tipo de Casa"
         },
@@ -80,6 +86,7 @@
             "buy": "Comprar",
             "rent": "Alquilar",
             "propertyType": "Tipo de Propiedad",
+            "typeAll": "Todas las Propiedades",
             "typeHouses": "Casas / Apartamentos",
             "typeCommercial": "Comercial",
             "typeLand": "Terrenos / Fincas",
@@ -87,7 +94,8 @@
             "min": "$ Min",
             "max": "$ Max",
             "bedrooms": "Habitaciones",
-            "any": "Cualquiera",
+            "bathrooms": "Baños",
+            "any": "Todas",
             "amenities": "Comodidades",
             "pool": "Piscina",
             "garage": "Garaje",
@@ -98,7 +106,13 @@
             "house": "Casa",
             "apartment": "Apartamento",
             "commercial": "Comercial",
-            "land": "Terreno"
+            "land": "Terreno",
+            "studio": "Aparta estudio",
+            "local": "Local",
+            "finca": "Finca",
+            "edificio": "Edificio",
+            "bodega": "Bodega",
+            "consultorio": "Consultorio"
         }
     },
     "propertyDetails": {
@@ -129,13 +143,14 @@
             "openInMaps": "Abrir en Maps"
         },
         "agent": {
-            "role": "Agente Senior",
+            "role": "Agente",
             "form": {
                 "name": "Nombre",
                 "email": "Correo electrónico",
                 "phone": "Teléfono",
                 "message": "Estoy interesado en esta propiedad...",
                 "send": "Enviar Mensaje",
+                "want": "¿Quieres que te contactemos?",
                 "whatsapp": "Contactar por WhatsApp",
                 "terms": "Al enviar, aceptas nuestros Términos de Servicio"
             }

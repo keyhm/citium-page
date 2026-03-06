@@ -1,47 +1,66 @@
-'use client';
+"use client";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+export default function QuickFilters({ dict }: { dict: Record<string, any> }) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-export default function QuickFilters({ dict }: { dict: any }) {
-    const searchParams = useSearchParams();
-    const router = useRouter();
-    const pathname = usePathname();
+  // cycle through three values: sale, rent, both (sale_rent)
+  const types: Array<"sale" | "rent" | "sale_rent"> = [
+    "sale",
+    "rent",
+    "sale_rent",
+  ];
+  const currentType =
+    (searchParams.get("type") as "sale" | "rent" | "sale_rent") || "sale";
+  const toggleType = () => {
+      const params = new URLSearchParams(searchParams.toString());
+      const idx = types.indexOf(currentType);
+      const next = types[(idx + 1) % types.length];
 
-    const currentType = searchParams.get('type') || 'sale';
+      // always set the requested type; downstream list component will honour it
+      params.set("type", next);
 
-    const toggleType = () => {
-        const params = new URLSearchParams(searchParams.toString());
-        if (currentType === 'sale') {
-            params.set('type', 'rent');
-        } else {
-            params.set('type', 'sale');
-        }
-        router.push(pathname + '?' + params.toString(), { scroll: false });
+      // wipe any price filters that no longer make sense for the selected mode
+      if (next === "sale") {
+        params.delete("minPriceRent");
+        params.delete("maxPriceRent");
+      } else if (next === "rent") {
+        params.delete("minPriceSale");
+        params.delete("maxPriceSale");
+      } else if (next === "sale_rent") {
+        // going into both mode: clear generic bounds which operate against
+        // a single numeric price field (priceNumber) that may not exist for
+        // dual‑mode listings. The specialized sale/rent fields can remain.
+        params.delete("minPrice");
+        params.delete("maxPrice");
+      }
+
+      router.push(pathname + "?" + params.toString(), { scroll: false });
     };
+  return (
+    <div
+      className="border-t border-gray-200 bg-surface-light py-3 px-6 flex flex-wrap gap-4 items-center z-10 relative"
+      style={{ flexDirection: "row-reverse" }}
+    >
+      {/* type toggle */}
+      <button
+        onClick={toggleType}
+        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm font-medium transition-colors hover:bg-primary/20"
+      >
+        <span>
+          {currentType === "sale"
+            ? dict.properties.quickFilters.forSale
+            : currentType === "rent"
+              ? dict.properties.quickFilters.forRent ||
+                dict.properties.sidebar.rent
+              : dict.properties.quickFilters.forSaleRent}
+        </span>
+        <span className="material-symbols-outlined text-[18px]">swap_vert</span>
+      </button>
 
-    return (
-        <div className="border-t border-gray-200 bg-surface-light py-3 px-6 flex flex-wrap gap-2 items-center z-10 relative">
-            <button className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-background-light hover:bg-gray-100 text-sm font-medium text-text-muted transition-colors">
-                <span>{dict.properties.quickFilters.price}</span>
-                <span className="material-symbols-outlined text-[18px]">expand_more</span>
-            </button>
-            <button
-                onClick={toggleType}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm font-medium transition-colors hover:bg-primary/20"
-            >
-                <span>{currentType === 'sale' ? dict.properties.quickFilters.forSale : dict.properties.sidebar.rent}</span>
-                <span className="material-symbols-outlined text-[18px]">swap_vert</span>
-            </button>
-            <button className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-background-light hover:bg-gray-100 text-sm font-medium text-text-muted transition-colors">
-                <span>{dict.properties.quickFilters.bedsBaths}</span>
-                <span className="material-symbols-outlined text-[18px]">expand_more</span>
-            </button>
-            <button className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-background-light hover:bg-gray-100 text-sm font-medium text-text-muted transition-colors">
-                <span>{dict.properties.quickFilters.homeType}</span>
-                <span className="material-symbols-outlined text-[18px]">expand_more</span>
-            </button>
-            <div className="flex-1"></div>
-
-        </div>
-    );
+      <div className="flex-1"></div>
+    </div>
+  );
 }

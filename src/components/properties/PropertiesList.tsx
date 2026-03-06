@@ -9,16 +9,32 @@ export default function PropertiesList({ dict }: { dict: any }) {
     const searchParams = useSearchParams();
 
     // Construct filters object from URL
-    const filters = {
-        type: searchParams.get('type') || undefined,
+    // build filters object; the toggle cycles through three values (sale, rent, sale_rent)
+    // and we want the backend to honour whichever is currently selected.  Previously the
+    // "sale_rent" case omitted the `type` filter entirely so that every listing would
+    // be returned, which made the toggle misleading.  All three values are now passed
+    // through directly and the service will apply an equality filter against `type`.
+    const rawType = searchParams.get('type');
+    const filters: any = {
         category: searchParams.get('category') || undefined,
-        minPrice: searchParams.get('minPrice') || undefined,
-        maxPrice: searchParams.get('maxPrice') || undefined,
         beds: searchParams.get('beds') || undefined,
+        baths: searchParams.get('baths') || undefined,
         amenities: searchParams.getAll('amenities'),
         page: parseInt(searchParams.get('page') || '1', 10),
         pageSize: 12
     };
+
+    if (rawType) {
+        filters.type = rawType;
+    }
+
+    // price / sale-rent pricing
+    if (searchParams.get('minPrice')) filters.minPrice = searchParams.get('minPrice');
+    if (searchParams.get('maxPrice')) filters.maxPrice = searchParams.get('maxPrice');
+    if (searchParams.get('minPriceSale')) filters.minPriceSale = searchParams.get('minPriceSale');
+    if (searchParams.get('maxPriceSale')) filters.maxPriceSale = searchParams.get('maxPriceSale');
+    if (searchParams.get('minPriceRent')) filters.minPriceRent = searchParams.get('minPriceRent');
+    if (searchParams.get('maxPriceRent')) filters.maxPriceRent = searchParams.get('maxPriceRent');
 
     // pass filters to React Query hook
     const { data, isLoading, isError } = useProperties(filters);
@@ -54,11 +70,14 @@ export default function PropertiesList({ dict }: { dict: any }) {
                 </div>
                 <div className="flex items-center gap-2">
                     <span className="text-sm text-text-muted">{dict.properties.sortBy}</span>
-                    <select className="form-select border-none bg-transparent text-sm font-semibold text-text-main focus:ring-0 cursor-pointer py-0 pl-0 pr-8">
-                        <option>{dict.properties.sortNewest}</option>
-                        <option>{dict.properties.sortHighToLow}</option>
-                        <option>{dict.properties.sortLowToHigh}</option>
-                    </select>
+                    <div className="relative inline-block w-40">
+                        <select className="w-full appearance-none rounded-lg border border-gray-200 bg-white py-1.5 px-3 text-sm font-semibold text-text-main transition-colors hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                            <option>{dict.properties.sortNewest}</option>
+                            <option>{dict.properties.sortHighToLow}</option>
+                            <option>{dict.properties.sortLowToHigh}</option>
+                        </select>
+                        <span className="material-symbols-outlined absolute right-2 top-1/2 transform -translate-y-1/2 text-text-muted pointer-events-none">expand_more</span>
+                    </div>
                 </div>
             </div>
 

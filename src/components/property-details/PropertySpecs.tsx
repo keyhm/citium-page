@@ -31,7 +31,7 @@ export default function PropertySpecs({ dict, property }: { dict: any; property:
                 </div>
                 <div>
                     <p className="text-sm text-text-muted font-medium">{dict.propertyDetails.specs.area}</p>
-                    <p className="text-lg font-bold text-text-main">{property.sqft}</p>
+                    <p className="text-lg font-bold text-text-main">{property.area}</p>
                 </div>
             </div>
 

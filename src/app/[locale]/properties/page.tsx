@@ -2,7 +2,6 @@ import { getDictionary } from '@/lib/dictionary';
 import { Suspense } from 'react';
 import SidebarFilter from '@/components/properties/SidebarFilter';
 import QuickFilters from '@/components/properties/QuickFilters';
-import Pagination from '@/components/shared/Pagination';
 import PropertiesList from '@/components/properties/PropertiesList';
 
 export const dynamic = 'force-dynamic';

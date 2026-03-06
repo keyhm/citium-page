@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PropertyCardDTO } from '@/types/property';
+import { formatPrice } from '@/lib/format';
 
 interface PropertyProps extends PropertyCardDTO {
     dict: any;
@@ -13,12 +14,22 @@ export default function PropertyCard({
 }: PropertyProps) {
 
     const getBadgeColor = () => {
+        // assign colors to a handful of common categories, any unknowns fall back to house styling
         switch (category) {
-            case 'apartment': return 'bg-accent-blue text-slate-900';
-            case 'commercial': return 'bg-accent-grey text-slate-900';
-            case 'land': return 'bg-accent-green text-slate-900';
-            case 'house':
-            default: return 'bg-white/90 text-primary';
+            case 'apartamento':
+            case 'estudio':
+                return 'bg-accent-blue text-slate-900';
+            case 'local':
+            case 'edificio':
+            case 'bodega':
+            case 'consultorio':
+                return 'bg-accent-grey text-slate-900';
+            case 'lote':
+            case 'finca':
+                return 'bg-accent-green text-slate-900';
+            case 'casa':
+            default:
+                return 'bg-white/90 text-primary';
         }
     };
 
@@ -28,14 +39,32 @@ export default function PropertyCard({
                 return 'bg-blue-500 text-white';
             case 'rent':
                 return 'bg-grey-500 text-white';
+            case 'sale_rent':
+                // both sale and rent; stick with primary so it's neutral
+                return 'bg-primary text-white';
             default:
                 return 'bg-primary text-white';
         }
     };
 
     const getTypeText = () => {
+        // show a localized label for the property's transaction type.  the
+        // value is driven by the `type` field on the DTO which can be
+        // "sale", "rent" or "sale_rent" (when both prices are supplied).
+        // we fall back to the raw value if the dictionary is missing.
         if (!dict || !dict.featured) return type;
-        return type === 'sale' ? dict.featured.forSale : dict.featured.forRent;
+
+        switch (type) {
+            case 'sale':
+                return dict.featured.forSale;
+            case 'rent':
+                return dict.featured.forRent;
+            case 'sale_rent':
+                // English/Spanish dictionaries already include this key
+                return dict.featured.forSaleRent || 'Sale_Rent';
+            default:
+                return type;
+        }
     };
 
     // Fallback translation mapping
@@ -63,17 +92,17 @@ export default function PropertyCard({
                         {getTypeText()}
                     </div>
                 </div>
-                <button
-                    onClick={(e) => e.stopPropagation()}
+                {/* <button
+                    onClick={useFavorites().toggleFavorite.bind(null, id)}
                     className="absolute right-3 top-3 rounded-full bg-black/20 p-1.5 text-white backdrop-blur-sm transition-colors hover:bg-black/40"
                 >
                     <span className="material-symbols-outlined text-[20px]">favorite</span>
-                </button>
+                </button> */}
             </div>
             <div className="p-4 flex flex-col flex-1">
                 <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-bold text-text-main">
-                        ${price}
+                        {formatPrice(price)}
                     </h3>
                 </div>
                 <p className="text-sm font-medium text-text-muted mb-3 truncate">{title} - {location}</p>
