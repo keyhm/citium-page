@@ -52,9 +52,9 @@
     "footer": {
         "description": "Conectándote con las mejores propiedades y los agentes más experimentados. Tu viaje hacia el hogar perfecto comienza aquí.",
         "properties": "Propiedades",
-        "buyHome": "Comprar Casa",
-        "rentHome": "Alquilar Casa",
-        "sellHome": "Vender Casa",
+        "buyHome": "Comprar",
+        "rentHome": "Alquilar",
+        "sellHome": "Vender",
         "company": "Empresa",
         "aboutUs": "Sobre Nosotros",
         "careers": "Carreras",
@@ -103,12 +103,11 @@
             "waterfront": "Frente al agua"
         },
         "tags": {
-            "house": "Casa",
-            "apartment": "Apartamento",
-            "commercial": "Comercial",
-            "land": "Terreno",
-            "studio": "Aparta estudio",
+            "casa": "Casa",
+            "apartamento": "Apartamento",
+            "aparta estudio": "Aparta estudio",
             "local": "Local",
+            "lote": "Lote",
             "finca": "Finca",
             "edificio": "Edificio",
             "bodega": "Bodega",
@@ -127,7 +126,8 @@
         },
         "description": {
             "title": "Descripción",
-            "showMore": "Mostrar más"
+            "showMore": "Mostrar más",
+            "showLess": "Mostrar menos"
         },
         "amenities": {
             "title": "Comodidades",

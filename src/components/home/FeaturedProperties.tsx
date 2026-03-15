@@ -59,7 +59,7 @@ export default function FeaturedProperties({ dict, locale }: { dict: any; locale
 
                     <a
                         className="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-text-main transition-colors hover:border-primary hover:text-primary"
-                        href={`/${locale}/properties`}
+                        href={`/properties`}
                     >
                         {dict.featured.viewAll}
                     </a>

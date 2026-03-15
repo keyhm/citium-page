@@ -30,7 +30,7 @@ export default function PropertyMapInner({ dict, location, coordinates }: { dict
         <div className="space-y-4 pt-6 border-t border-gray-200">
             <div className="flex justify-between items-center">
                 <h3 className="text-xl font-bold text-text-main">{dict.propertyDetails.location.title}</h3>
-                <button className="text-primary text-sm font-semibold hover:underline">
+                <button onClick={() => window.open(`https://www.google.com/maps?q=${encodeURIComponent(location)}`, '_blank')} className="text-primary text-sm font-semibold hover:underline">
                     {dict.propertyDetails.location.openInMaps}
                 </button>
             </div>

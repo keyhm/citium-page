@@ -2,19 +2,55 @@ import { Property, PropertyCardDTO } from '@/types/property';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
-const mapStrapiToProperty = (item: any): Property => {
+interface StrapiItem {
+    id?: number;
+    documentId?: string;
+    attributes?: StrapiAttributes;
+    [key: string]: unknown;
+}
+
+interface StrapiAttributes {
+    title?: string;
+    description?: string;
+    price?: string;
+    priceSale?: string;
+    priceRent?: string;
+    location?: string;
+    type?: string;
+    category?: string;
+    beds?: number;
+    baths?: number;
+    area?: number;
+    parking?: number;
+    images?: {
+        data?: Array<{
+            attributes?: {
+                url?: string;
+            };
+            url?: string;
+        }>;
+    } | Array<{
+        url?: string;
+    }>;
+    amenities?: string[];
+    coordinates?: [number, number];
+    createdAt?: string;
+    updatedAt?: string;
+}
+
+const mapStrapiToProperty = (item: StrapiItem): Property => {
     // Strapi REST API formats: `attributes` wrapper (v4) or flattened (v5)
-    const attr = item.attributes || item;
+    const attr = item.attributes || (item as StrapiAttributes);
 
     // Extract images parsing Strapi's media format
     let imageUrls: string[] = [];
-    if (attr.images?.data) {
-        imageUrls = attr.images.data.map((img: any) => {
+    if ((attr as any).images?.data) {
+        imageUrls = (attr as any).images.data.map((img: any) => {
             const url = img.attributes?.url || img.url;
             return url?.startsWith('http') ? url : `${STRAPI_URL}${url}`;
         });
-    } else if (Array.isArray(attr.images)) {
-        imageUrls = attr.images.map((img: any) => {
+    } else if (Array.isArray((attr as any).images)) {
+        imageUrls = (attr as any).images.map((img: any) => {
             const url = img.url;
             return url?.startsWith('http') ? url : `${STRAPI_URL}${url}`;
         });
@@ -31,7 +67,7 @@ const mapStrapiToProperty = (item: any): Property => {
     const genericPrice = attr.price || '';
 
     let displayPrice = '';
-    let typeVal: 'sale' | 'rent' | 'sale_rent' = attr.type as any || 'sale';
+    let typeVal: 'sale' | 'rent' | 'sale_rent' = (attr.type as 'sale' | 'rent' | 'sale_rent') || 'sale';
 
     if (salePrice && rentPrice) {
         // has both prices
@@ -63,7 +99,7 @@ const mapStrapiToProperty = (item: any): Property => {
         location: attr.location || '',
         type: typeVal,
         // Strapi now uses Spanish enum values; fall back to a generic 'casa' if missing
-        category: attr.category || 'casa',
+        category: (attr.category as Property['category']) || 'casa',
         beds: attr.beds || 0,
         baths: attr.baths || 0,
         area: attr.area || 0,
@@ -112,6 +148,7 @@ export const propertyService = {
         amenities?: string[];
         page?: number;
         pageSize?: number;
+        sort?: string;
     }): Promise<{
         data: PropertyCardDTO[],
         meta: {
@@ -133,6 +170,15 @@ export const propertyService = {
             const pageSize = filters?.pageSize || 12;
             params.append('pagination[page]', page.toString());
             params.append('pagination[pageSize]', pageSize.toString());
+
+            // Sorting
+            if (filters?.sort === 'priceHighToLow') {
+                params.append('sort', 'priceSale:desc,priceRent:desc');
+            }
+
+            if (filters?.sort === 'priceLowToHigh') {
+                params.append('sort', 'priceSale:asc,priceRent:asc');
+            }
 
             // Build Strapi REST filters array dynamically
             if (filters) {
@@ -165,8 +211,7 @@ export const propertyService = {
                     params.append('filters[category][$in]', categories.join(','));
                 }
 
-                // Price Range (generic) - filter properties by sale or generic price
-                // Strapi doesn't have a single numeric price field, so we filter on priceSale/price fields
+                // Price Range (generic) - filter properties by sale price when type is sale
                 if (filters.minPrice) {
                     const min = parseInt(filters.minPrice.replace(/\D/g, ''));
                     params.append('filters[priceSale][$gte]', min.toString());

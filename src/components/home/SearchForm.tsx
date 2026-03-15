@@ -3,7 +3,22 @@
 import { useParams, useRouter } from 'next/navigation';
 import { FormEvent } from 'react';
 
-export default function SearchForm({ dict }: { dict: any }) {
+interface Dictionary {
+    hero: {
+        location: string;
+        locationAny: string;
+        type: string;
+        typeAny: string;
+        priceRange: string;
+        priceAny: string;
+        search: string;
+    };
+    properties?: {
+        tags?: Record<string, string>;
+    };
+}
+
+export default function SearchForm({ dict }: { dict: Dictionary }) {
     const router = useRouter();
     const params = useParams();
     const locale = params.locale || 'en';
@@ -31,10 +46,11 @@ export default function SearchForm({ dict }: { dict: any }) {
     ];
 
     const priceRanges = [
-        { value: '100-300', label: '$100k - $300k' },
-        { value: '300-600', label: '$300k - $600k' },
-        { value: '600-1000', label: '$600k - $1M' },
-        { value: '1000+', label: '$1M+' }
+        { value: '50-100', label: '$50M - $100M' },
+        { value: '100-300', label: '$100M - $300M' },
+        { value: '300-600', label: '$300M - $600M' },
+        { value: '600-1000', label: '$600M - $1000M' },
+        { value: '1000+', label: '$1000M+' }
     ];
 
     const handleSearch = (e: FormEvent<HTMLFormElement>) => {
@@ -42,7 +58,6 @@ export default function SearchForm({ dict }: { dict: any }) {
 
         const formData = new FormData(e.currentTarget);
         const searchParams = new URLSearchParams();
-
         const location = formData.get('location') as string;
         const category = formData.get('category') as string;
         const priceRange = formData.get('priceRange') as string;
@@ -50,18 +65,24 @@ export default function SearchForm({ dict }: { dict: any }) {
         if (location) searchParams.set('location', location);
         if (category) searchParams.set('category', category);
 
+        // Set default type to sale for price filtering
+        searchParams.set('type', 'sale');
+
         if (priceRange) {
-            if (priceRange === '100-300') {
-                searchParams.set('minPrice', '100000');
-                searchParams.set('maxPrice', '300000');
+            if (priceRange === '50-100') {
+                searchParams.set('minPrice', '50000000');
+                searchParams.set('maxPrice', '100000000');
+            } else if (priceRange === '100-300') {
+                searchParams.set('minPrice', '100000000');
+                searchParams.set('maxPrice', '300000000');
             } else if (priceRange === '300-600') {
-                searchParams.set('minPrice', '300000');
-                searchParams.set('maxPrice', '600000');
+                searchParams.set('minPrice', '300000000');
+                searchParams.set('maxPrice', '600000000');
             } else if (priceRange === '600-1000') {
-                searchParams.set('minPrice', '600000');
-                searchParams.set('maxPrice', '1000000');
+                searchParams.set('minPrice', '600000000');
+                searchParams.set('maxPrice', '1000000000');
             } else if (priceRange === '1000+') {
-                searchParams.set('minPrice', '1000000');
+                searchParams.set('minPrice', '1000000000');
             }
         }
 

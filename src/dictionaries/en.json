@@ -103,12 +103,11 @@
             "waterfront": "Waterfront"
         },
         "tags": {
-            "house": "House",
-            "apartment": "Apartment",
-            "commercial": "Commercial",
-            "land": "Land",
-            "Studio": "Studio",
-            "local": "Local",
+            "casa": "House",
+            "apartamento": "Apartment",
+            "aparta estudio": "Studio Apartment",
+            "local": "Commercial Space",
+            "lote": "Lot",
             "finca": "Farm",
             "edificio": "Building",
             "bodega": "Warehouse",
@@ -127,7 +126,8 @@
         },
         "description": {
             "title": "Description",
-            "showMore": "Show more"
+            "showMore": "Show more",
+            "showLess": "Show less"
         },
         "amenities": {
             "title": "Amenities",

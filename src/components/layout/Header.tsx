@@ -15,11 +15,7 @@ export default function Header({ dict, locale }: { dict: any; locale: string }) 
 
                 {/* Logo */}
                 <Link href={`/${locale}`} className="flex items-center gap-3">
-                    <Image
-                        src="/logo.png"
-                        alt="Estate Logo"
-                        width={250}
-                        height={75}
+                    <Image src="/logo.png" alt="Logo" width={250} height={75}
                         className="h-10 md:h-12 w-auto object-contain scale-[2.4] md:scale-[3.0] origin-left"
                         priority
                     />
@@ -27,15 +23,13 @@ export default function Header({ dict, locale }: { dict: any; locale: string }) 
 
                 {/* Desktop nav */}
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link
-                        className="text-sm font-medium text-text-main hover:text-primary transition-colors"
+                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors"
                         href={`/${locale}/properties?type=sale`}
                     >
                         {dict.header.buy}
                     </Link>
 
-                    <Link
-                        className="text-sm font-medium text-text-main hover:text-primary transition-colors"
+                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors"
                         href={`/${locale}/properties?type=rent`}
                     >
                         {dict.header.rent}

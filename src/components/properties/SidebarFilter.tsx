@@ -4,23 +4,13 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import { formatNumber, unformatNumber } from '@/lib/format';
 
-export default function SidebarFilter({ dict }: { dict: any }) {
+export default function SidebarFilter({ dict, mobile = false }: { dict: any; mobile?: boolean }) {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
     // categories must mirror the Strapi enumeration values
-    const categories = [
-        'casa',
-        'apartamento',
-        'aparta estudio',
-        'local',
-        'lote',
-        'finca',
-        'edificio',
-        'bodega',
-        'consultorio'
-    ];
+    const categories = Object.keys(dict.properties.tags);
 
     // Local state to hold temporary filter values before pushing to URL (optional, but good for text inputs)
     // keep the raw numeric string (digits only) in state; display formatting is handled on render
@@ -73,6 +63,8 @@ export default function SidebarFilter({ dict }: { dict: any }) {
     };
 
     const resetFilters = () => {
+        setMinPrice('');
+        setMaxPrice('');
         router.push(pathname, { scroll: false });
     };
 
@@ -80,12 +72,12 @@ export default function SidebarFilter({ dict }: { dict: any }) {
     const currentCategories = searchParams.get('category')?.split(',') || [];
     const currentBaths = searchParams.get('baths') || '';
 
-    return (
-        <aside className="w-80 hidden lg:flex flex-col border-r border-gray-200 bg-surface-light overflow-y-auto z-10 shrink-0">
+    const content = (
+        <>
             <div className="p-5 border-b border-gray-100 sticky top-0 bg-surface-light z-10">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-bold text-lg text-text-main">{dict.properties.sidebar.title}</h3>
-                    <button onClick={resetFilters} className="text-sm text-primary font-medium hover:underline">{dict.properties.sidebar.reset}</button>
+                    <button onClick={resetFilters} className="text-sm text-primary font-medium cursor-pointer">{dict.properties.sidebar.reset}</button>
                 </div>
                 {/* Status Toggle */}
                 <div className="flex bg-background-light p-1 rounded-lg mb-4">
@@ -168,6 +160,16 @@ export default function SidebarFilter({ dict }: { dict: any }) {
                     </div>
                 </div>
             </div>
+        </>
+    );
+
+    if (mobile) {
+        return <div className="flex flex-col">{content}</div>;
+    }
+
+    return (
+        <aside className="w-80 hidden lg:flex flex-col border-r border-gray-200 bg-surface-light overflow-y-auto z-10 shrink-0">
+            {content}
         </aside>
     );
 }

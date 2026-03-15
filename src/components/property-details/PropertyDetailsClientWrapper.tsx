@@ -9,6 +9,7 @@ import AgentContactForm from '@/components/property-details/AgentContactForm';
 import SimilarProperties from '@/components/property-details/SimilarProperties';
 import PropertyMap from '@/components/property-details/PropertyMap';
 import { usePropertyDetails } from '@/hooks/useProperties';
+import { useState } from 'react';
 
 export default function PropertyDetailsClientWrapper({
     dict,
@@ -20,6 +21,7 @@ export default function PropertyDetailsClientWrapper({
     id: string
 }) {
     const { data: property, isLoading, isError } = usePropertyDetails(id);
+    const [expanded, setExpanded] = useState(false);
 
     if (isLoading) {
         return (
@@ -85,14 +87,23 @@ export default function PropertyDetailsClientWrapper({
                     {/* Description */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold text-text-main">{dict.propertyDetails?.description?.title || "Description"}</h3>
-                        <div className="prose max-w-none text-text-muted leading-relaxed">
+                        <div  className={`prose max-w-none text-text-muted leading-relaxed ${!expanded ? "line-clamp-5" : ""}`}>
                             {processedProperty.description.map((p, index) => (
                                 <p key={index} className={index > 0 ? "mt-4" : ""}>{p}</p>
                             ))}
                         </div>
-                        <button className="text-primary font-bold text-sm hover:underline flex items-center gap-1">
-                            {dict.propertyDetails?.description?.showMore || "Show more"} <span className="material-symbols-outlined text-[16px]">expand_more</span>
-                        </button>
+                        <button onClick={() => setExpanded(!expanded)}
+                            className="text-primary font-bold text-sm curs flex items-center gap-1 mt-2" >
+                        {
+                            expanded
+                            ? dict.propertyDetails?.description?.showLess || "Show less"
+                            : dict.propertyDetails?.description?.showMore || "Show more"
+                        }
+
+                        <span className="material-symbols-outlined text-[16px]">
+                            {expanded ? "expand_less" : "expand_more"}
+                        </span>
+                    </button> 
                     </div>
 
                     <PropertyAmenities dict={dict} amenities={processedProperty.amenities} />

@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import SidebarFilter from '@/components/properties/SidebarFilter';
 import QuickFilters from '@/components/properties/QuickFilters';
 import PropertiesList from '@/components/properties/PropertiesList';
+import MobileFilterModal from '@/components/properties/MobileFilterModal';
 
 export const dynamic = 'force-dynamic';
 
@@ -37,11 +38,8 @@ export default async function PropertiesPage({ params }: { params: Promise<{ loc
                     </div>
                 </section>
 
-                {/* Mobile Filter Floating Button */}
-                <button className="lg:hidden fixed bottom-6 right-6 z-40 bg-primary text-white px-5 py-3 rounded-full shadow-lg shadow-primary/40 flex items-center gap-2 font-semibold">
-                    <span className="material-symbols-outlined">tune</span>
-                    {dict.properties.sidebar.title}
-                </button>
+                {/* Mobile Filter Modal */}
+                <MobileFilterModal dict={dict} />
             </main>
         </div>
     );
