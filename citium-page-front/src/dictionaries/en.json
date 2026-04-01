@@ -80,7 +80,8 @@
             "forRent": "For Rent",
             "forSaleRent": "Sale / Rent",
             "bedsBaths": "Beds & Baths",
-            "homeType": "Home Type"
+            "homeType": "Home Type",
+            "apply": "Apply Filters"
         },
         "sidebar": {
             "title": "Filters",

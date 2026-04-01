@@ -1,6 +1,8 @@
 import { formatPrice } from '@/lib/format';
+import { Dictionary } from '@/types/types';
+import { Property } from '@/types/property';
 
-export default function PropertyHeader({ dict, property }: { dict: any; property: any }) {
+export default function PropertyHeader({ dict, property }: { dict: Dictionary; property: Property }) {
     return (
         <>
             {/* Header Info (Mobile Only) */}

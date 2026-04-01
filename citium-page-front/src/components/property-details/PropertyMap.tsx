@@ -1,5 +1,6 @@
 'use client';
 
+import { Dictionary } from '@/types/types';
 import dynamic from 'next/dynamic';
 
 const PropertyMapInner = dynamic(() => import('./PropertyMapInner'), {
@@ -14,6 +15,6 @@ const PropertyMapInner = dynamic(() => import('./PropertyMapInner'), {
     )
 });
 
-export default function PropertyMap({ dict, location, coordinates }: { dict: any; location: string; coordinates: [number, number] }) {
+export default function PropertyMap({ dict, location, coordinates }: { dict: Dictionary; location: string; coordinates: [number, number] }) {
     return <PropertyMapInner dict={dict} location={location} coordinates={coordinates} />;
 }

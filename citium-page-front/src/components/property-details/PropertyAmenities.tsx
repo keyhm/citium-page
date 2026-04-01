@@ -1,4 +1,6 @@
-export default function PropertyAmenities({ dict, amenities }: { dict: any; amenities: string[] }) {
+import { Dictionary } from "@/types/types";
+
+export default function PropertyAmenities({ dict, amenities }: { dict: Dictionary; amenities: string[] }) {
     if (!amenities || amenities.length === 0) return null;
 
     return (

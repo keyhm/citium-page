@@ -10,13 +10,14 @@ import SimilarProperties from '@/components/property-details/SimilarProperties';
 import PropertyMap from '@/components/property-details/PropertyMap';
 import { usePropertyDetails } from '@/hooks/useProperties';
 import { useState } from 'react';
+import { Dictionary } from '@/types/types';
 
 export default function PropertyDetailsClientWrapper({
     dict,
     locale,
     id
 }: {
-    dict: any,
+    dict: Dictionary,
     locale: string,
     id: string
 }) {

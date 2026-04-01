@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PropertyCardDTO } from '@/types/property';
 import { formatPrice } from '@/lib/format';
+import { Dictionary } from '@/types/types';
 
 interface PropertyProps extends PropertyCardDTO {
-    dict: any;
+    dict: Dictionary;
 }
 
 export default function PropertyCard({

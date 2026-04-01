@@ -1,8 +1,9 @@
 
+import { Dictionary } from '@/types/types';
 import { useState } from 'react';
 
 interface AgentContactFormProps {
-    dict: any;
+    dict: Dictionary;
     property?: {
         id: string;
         title: string;

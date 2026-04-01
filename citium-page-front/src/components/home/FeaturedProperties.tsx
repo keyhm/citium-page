@@ -4,8 +4,9 @@ import { useEffect, useRef } from 'react';
 import { motion, useAnimationControls } from 'framer-motion';
 import PropertyCard from '@/components/shared/PropertyCard';
 import { useFeaturedProperties } from '@/hooks/useProperties';
+import { Dictionary } from '@/types/types';
 
-export default function FeaturedProperties({ dict, locale }: { dict: any; locale: string }) {
+export default function FeaturedProperties({ dict, locale }: { dict: Dictionary ; locale: 'en' | 'es' }) {
     const { data: properties, isLoading, isError } = useFeaturedProperties();
     const carouselControls = useAnimationControls();
     const isPausedRef = useRef(false);
@@ -59,7 +60,7 @@ export default function FeaturedProperties({ dict, locale }: { dict: any; locale
 
                     <a
                         className="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-text-main transition-colors hover:border-primary hover:text-primary"
-                        href={`/properties`}
+                        href={`/${locale}/properties`}
                     >
                         {dict.featured.viewAll}
                     </a>

@@ -1,8 +1,9 @@
 'use client'
 
+import { Dictionary } from '@/types/types';
 import { useState } from 'react'
 
-export default function PropertyGallery({ dict, images }: { dict: any; images: string[] }) {
+export default function PropertyGallery({ dict, images }: { dict: Dictionary; images: string[] }) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
   if (!images || images.length === 0) return null

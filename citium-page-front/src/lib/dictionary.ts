@@ -1,10 +1,12 @@
-import 'server-only';
+import type { Dictionary } from '../types/types';
 
-const dictionaries = {
-    en: () => import('../dictionaries/en.json').then((module) => module.default),
-    es: () => import('../dictionaries/es.json').then((module) => module.default),
-};
+export const getDictionary = async (
+  locale: 'en' | 'es'
+): Promise<Dictionary> => {
+  const dictionaries = {
+    en: () => import('../dictionaries/en.json').then((m) => m.default),
+    es: () => import('../dictionaries/es.json').then((m) => m.default),
+  };
 
-export const getDictionary = async (locale: 'en' | 'es') => {
-    return dictionaries[locale]();
+  return dictionaries[locale]();
 };

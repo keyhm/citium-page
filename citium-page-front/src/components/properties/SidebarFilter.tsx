@@ -4,9 +4,10 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useState } from "react";
 import { formatNumber, unformatNumber } from "@/lib/format";
 import QuickFilters from "./QuickFilters";
+import { Dictionary } from "@/types/types";
 
 export default function SidebarFilter({ dict, isMobile = false }: {
-    dict: any; isMobile?: boolean;
+    dict: Dictionary,  isMobile?: boolean;
 }) {
     const router = useRouter();
     const pathname = usePathname();

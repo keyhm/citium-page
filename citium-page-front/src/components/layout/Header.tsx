@@ -5,8 +5,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import LanguageSwitcher from '../shared/LanguageSwitcher'
 import { Menu, X } from 'lucide-react'
+import { Dictionary } from '@/types/types'
 
-export default function Header({ dict, locale }: { dict: any; locale: string }) {
+export default function Header({ dict, locale }: { dict: Dictionary; locale: 'en' | 'es' }) {
     const [open, setOpen] = useState(false)
 
     return (

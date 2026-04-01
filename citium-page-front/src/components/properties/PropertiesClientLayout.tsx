@@ -5,10 +5,10 @@ import { Suspense } from 'react';
 import SidebarFilter from '@/components/properties/SidebarFilter';
 import PropertiesList from '@/components/properties/PropertiesList';
 import MobileFilterModal from '@/components/properties/MobileFilterModal';
+import { Dictionary } from '@/types/types';
 
 interface PropertiesClientLayoutProps {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    dict: any;
+    dict: Dictionary;
     children?: React.ReactNode;
 }
 
@@ -55,7 +55,9 @@ export default function PropertiesClientLayout({ dict }: PropertiesClientLayoutP
             <MobileFilterModal
                 dict={dict}
                 isOpen={isFilterModalOpen}
+                onOpen={() => setIsFilterModalOpen(true)}
                 onClose={() => setIsFilterModalOpen(false)}
+                onApply={() => setIsFilterModalOpen(false)}
             />
         </div>
     );

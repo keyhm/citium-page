@@ -1,7 +1,8 @@
 "use client";
+import { Dictionary } from "@/types/types";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
-export default function QuickFilters({ dict }: { dict: Record<string, any> }) {
+export default function QuickFilters({ dict }: { dict: Dictionary }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();

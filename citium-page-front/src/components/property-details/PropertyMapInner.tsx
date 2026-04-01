@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useEffect } from 'react';
+import { Dictionary } from '@/types/types';
 
 // Fix for default marker icons in Leaflet with Next.js/Webpack
 const DefaultIcon = L.icon({
@@ -17,7 +18,7 @@ const DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-export default function PropertyMapInner({ dict, location, coordinates }: { dict: any; location: string; coordinates: [number, number] }) {
+export default function PropertyMapInner({ dict, location, coordinates }: { dict: Dictionary; location: string; coordinates: [number, number] }) {
 
     // Fallback coordinates if not provided (e.g., New York)
     const position: [number, number] = coordinates || [40.7128, -74.0060];

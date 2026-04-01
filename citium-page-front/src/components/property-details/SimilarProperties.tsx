@@ -2,8 +2,9 @@
 
 import PropertyCard from '@/components/shared/PropertyCard';
 import { useSimilarProperties } from '@/hooks/useProperties';
+import { Dictionary } from '@/types/types';
 
-export default function SimilarProperties({ dict, currentId }: { dict: any, currentId: string }) {
+export default function SimilarProperties({ dict, currentId }: { dict: Dictionary, currentId: string }) {
     const { data: properties, isLoading, isError } = useSimilarProperties(currentId);
 
     if (isLoading) {

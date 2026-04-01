@@ -5,8 +5,9 @@ import Pagination from '@/components/shared/Pagination';
 import { useProperties } from '@/hooks/useProperties';
 import { useSearchParams } from 'next/navigation';
 import { PropertyCardDTO } from '@/types/property';
+import { Dictionary } from '@/types/types';
 
-export default function PropertiesList({ dict }: { dict: Record<string, any> }) {
+export default function PropertiesList({ dict }: { dict: Dictionary }) {
     const searchParams = useSearchParams();
 
 

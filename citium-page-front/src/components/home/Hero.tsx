@@ -1,6 +1,7 @@
+import { Dictionary } from '@/types/types';
 import SearchForm from './SearchForm';
 
-export default function Hero({ dict }: { dict: any }) {
+export default function Hero({ dict }: { dict: Dictionary }) {
     return (
         <section className="relative flex min-h-[600px] flex-col justify-center px-6 py-20 lg:py-32">
             {/* Background Image */}

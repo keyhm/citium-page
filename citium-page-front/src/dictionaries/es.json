@@ -81,7 +81,8 @@
             "forRent": "En Alquiler",
             "forSaleRent": "Venta / Alquiler",
             "bedsBaths": "Hab. y Baños",
-            "homeType": "Tipo de Casa"
+            "homeType": "Tipo de Casa",
+            "apply": "Aplicar Filtros"
         },
         "sidebar": {
             "title": "Filtros",

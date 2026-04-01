@@ -1,6 +1,7 @@
+import { Dictionary } from '@/types/types';
 import Image from 'next/image';
 
-export default function Footer({ dict }: { dict: any }) {
+export default function Footer({ dict }: { dict: Dictionary }) {
     return (
         <footer className="bg-[#1A2B48] text-white pt-16 pb-8">
             <div className="mx-auto max-w-7xl px-6">

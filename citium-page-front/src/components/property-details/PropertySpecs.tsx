@@ -1,4 +1,7 @@
-export default function PropertySpecs({ dict, property }: { dict: any; property: any }) {
+import { Dictionary } from "@/types/types";
+import { Property } from "@/types/property";
+
+export default function PropertySpecs({ dict, property }: { dict: Dictionary; property: Property }) {
     return (
         <div className="flex flex-wrap gap-4 md:gap-8 py-6 border-y border-gray-200">
             <div className="flex items-center gap-3">
