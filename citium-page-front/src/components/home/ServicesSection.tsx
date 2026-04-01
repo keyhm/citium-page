@@ -1,5 +1,3 @@
-import React from 'react';
-
 type CardItem = {
   icon: string;
   title: string;
