@@ -5,5 +5,5 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
     const { locale } = await params;
     await getDictionary(locale as 'en' | 'es');
 
-    return <ServicesSection />;
+    return <ServicesSection locale={locale} />;
 }
