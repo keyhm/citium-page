@@ -1,0 +1,169 @@
+{
+    "header": {
+        "buy": "Comprar",
+        "rent": "Alquilar",
+        "services": "Servicios",
+        "contactAgent": "Contactar asesor"
+    },
+    "hero": {
+        "title1": "Descubre Tu",
+        "title2": "Lugar perfecto",
+        "description": "Explora nuestro listado de propiedades y encuentra el lugar perfecto que estas buscando.",
+        "location": "Ubicación",
+        "locationPlaceholder": "Ciudad, C.P. o Dirección",
+        "type": "Tipo",
+        "typeAny": "Todas las Propiedades",
+        "locationAny": "Todas las Ubicaciones",
+        "typeHouse": "Casa",
+        "typeApartment": "Apartamento",
+        "typeCondo": "Condominio",
+        "typeVilla": "Villa",
+        "priceRange": "Rango de Precio",
+        "priceAny": "Cualquier Precio",
+        "search": "Buscar"
+    },
+    "about": {
+        "subtitle": "Quiénes Somos",
+        "title": "Redefiniendo los Bienes Raíces.",
+        "p1": "Conectamos a nuestros clientes con las propiedades que más se ajusten a sus necesidades, facilitando así la búsqueda de su próximo hogar o negocio. Nuestro enfoque se basa en la transparencia, el servicio personalizado y una profunda comprensión del mercado.",
+        "p2": "Ya sea que esté comprando su primera casa, buscando una inversión lucrativa o alquiler, nuestro equipo te brinda orientación en cada paso del camino. Experimente un proceso fluido desde la búsqueda hasta el cierre.",
+        "link": "Conoce Más Sobre Nosotros",
+        "feature1": "Listados Exclusivos",
+        "feature1Desc": "Conozca nuestras propiedades disponibles.",
+        "feature2": "Agentes",
+        "feature2Desc": "Agentes con un profundo conocimiento del mercado que lo ayudaran a encontrar de manera eficiente lo que busca.",
+        "feature3": "Proceso Impecable",
+        "feature3Desc": "Desde la búsqueda inicial hasta el cierre final, manejamos cada detalle con precisión.",
+        "feature4": "Soporte",
+        "feature4Desc": "Nuestro equipo estará disponible para responder a sus preguntas."
+    },
+    "featured": {
+        "subtitle": "Pensado Para Ti",
+        "title": "Propiedades Destacadas",
+        "viewAll": "Ver Todas las Propiedades",
+        "forSale": "En Venta",
+        "forRent": "En Alquiler",
+        "forSaleRent": "Venta / Alquiler",
+        "new": "Nuevo",
+        "beds": "Hab",
+        "baths": "Baños",
+        "sqft": "Pies Cuadrados",
+        "mo": "/mes",
+        "notPriced": "Precio a consultar"
+
+    },
+    "footer": {
+        "description": "Conectándote con las mejores propiedades. Tu búsqueda hacia el hogar, inversión o alquiler ajustado a tus necesidades comienza aquí.",
+        "properties": "Propiedades",
+        "buyHome": "Comprar",
+        "rentHome": "Alquilar",
+        "sellHome": "Vender",
+        "company": "Empresa",
+        "aboutUs": "Sobre Nosotros",
+        "careers": "Carreras",
+        "contact": "Contacto",
+        "contactUs": "Contáctenos",
+        "rights": "Todos los derechos reservados."
+    },
+    "properties": {
+        "title": "Bienes Raíces y Casas en Venta en {{location}}",
+        "breadcrumbs": "Inicio / Buscar / {{location}}",
+        "allLocations": "Cualquier Lugar",
+        "sortBy": "Ordenar por",
+        "sortNewest": "Agregados Recientemente",
+        "sortHighToLow": "Precio (De Mayor a Menor)",
+        "sortLowToHigh": "Precio (De Menor a Mayor)",
+        "quickFilters": {
+            "price": "Precio",
+            "priceSale": "Precio de Venta",
+            "priceRent": "Precio de Alquiler",
+            "forSale": "En Venta",
+            "forRent": "En Alquiler",
+            "forSaleRent": "Venta / Alquiler",
+            "bedsBaths": "Hab. y Baños",
+            "homeType": "Tipo de Casa"
+        },
+        "sidebar": {
+            "title": "Filtros",
+            "reset": "Restablecer Todos",
+            "buy": "Comprar",
+            "rent": "Alquilar",
+            "propertyType": "Tipo de Propiedad",
+            "typeAll": "Todas las Propiedades",
+            "typeHouses": "Casas / Apartamentos",
+            "typeCommercial": "Comercial",
+            "typeLand": "Terrenos / Fincas",
+            "priceRange": "Rango de Precio",
+            "min": "$ Min",
+            "max": "$ Max",
+            "bedrooms": "Habitaciones",
+            "bathrooms": "Baños",
+            "any": "Todas",
+            "amenities": "Comodidades",
+            "pool": "Piscina",
+            "garage": "Garaje",
+            "garden": "Jardín",
+            "waterfront": "Frente al agua"
+        },
+        "tags": {
+            "casa": "Casa",
+            "apartamento": "Apartamento",
+            "aparta estudio": "Aparta estudio",
+            "local": "Local",
+            "lote": "Lote",
+            "finca": "Finca",
+            "edificio": "Edificio",
+            "bodega": "Bodega",
+            "consultorio": "Consultorio"
+        }
+    },
+    "propertyDetails": {
+        "title": "Detalles de la Propiedad",
+        "showAllPhotos": "Mostrar todas",
+        "specs": {
+            "bedrooms": "Habitaciones",
+            "bathrooms": "Baños",
+            "area": "Área",
+            "parking": "Estacionamiento",
+            "spots": "Espacios"
+        },
+        "description": {
+            "title": "Descripción",
+            "showMore": "Mostrar más",
+            "showLess": "Mostrar menos"
+        },
+        "amenities": {
+            "title": "Comodidades",
+            "ac": "Aire Acondicionado",
+            "pool": "Piscina",
+            "heating": "Calefacción Central",
+            "laundry": "Cuarto de Lavandería",
+            "gym": "Gimnasio",
+            "alarm": "Alarma"
+        },
+        "location": {
+            "title": "Ubicación",
+            "openInMaps": "Abrir en Maps"
+        },
+        "agent": {
+            "role": "Agente",
+            "form": {
+                "name": "Nombre",
+                "email": "Correo electrónico",
+                "phone": "Teléfono",
+                "message": "Estoy interesado en esta propiedad...",
+                "send": "Enviar Mensaje",
+                "want": "¿Quieres que te contactemos?",
+                "whatsapp": "Contactar por WhatsApp",
+                "terms": "Al enviar, aceptas nuestros Términos de Servicio"
+            }
+        },
+        "safety": {
+            "title": "Propiedad Verificada",
+            "description": "Este anuncio ha sido verificado por nuestro equipo en el lugar."
+        },
+        "similar": {
+            "title": "Propiedades Similares"
+        }
+    }
+}

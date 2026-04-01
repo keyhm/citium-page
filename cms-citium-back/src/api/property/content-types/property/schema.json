@@ -1,0 +1,153 @@
+{
+    "kind": "collectionType",
+    "collectionName": "properties",
+    "info": {
+        "singularName": "property",
+        "pluralName": "properties",
+        "displayName": "Property",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "description": {
+            "type": "richtext",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "priceRent": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "priceSale": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "location": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "type": {
+            "type": "enumeration",
+            "enum": [
+                "sale",
+                "rent",
+                "sale_rent"
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "category": {
+            "type": "enumeration",
+            "enum": [
+                "casa",
+                "apartamento",
+                "estudio",
+                "local",
+                "lote",
+                "finca",
+                "edificio",
+                "bodega",
+                "consultorio",
+                "otro"
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "beds": {
+            "type": "integer",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "baths": {
+            "type": "decimal",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "area": {
+            "type": "integer",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "parking": {
+            "type": "integer",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "images": {
+            "type": "media",
+            "multiple": true,
+            "allowedTypes": [
+                "images"
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "amenities": {
+            "type": "json",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "coordinates": {
+            "type": "json",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        }
+    }
+}

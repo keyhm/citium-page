@@ -1,0 +1,168 @@
+{
+    "header": {
+        "buy": "Buy",
+        "rent": "Rent",
+        "services": "Services",
+        "contactAgent": "Contact Advisor"
+    },
+    "hero": {
+        "title1": "Discover Your",
+        "title2": "Perfect Sanctuary",
+        "description": "Explore exclusive listings in the world's most desirable neighborhoods. Experience a seamless journey home.",
+        "location": "Location",
+        "locationPlaceholder": "City, Zip, or Address",
+        "type": "Type",
+        "typeAny": "All Properties",
+        "locationAny": "All Locations",
+        "typeHouse": "House",
+        "typeApartment": "Apartment",
+        "typeCondo": "Condo",
+        "typeVilla": "Villa",
+        "priceRange": "Price Range",
+        "priceAny": "Any Price",
+        "search": "Search"
+    },
+    "about": {
+        "subtitle": "Who We Are",
+        "title": "Redefining Luxury Real Estate",
+        "p1": "We connect discerning clients with the finest properties and the most experienced agents in the market. Our approach is grounded in transparency, personalized service, and a deep understanding of the luxury market.",
+        "p2": "Whether you are buying your first home or seeking a lucrative investment, our team provides expert guidance every step of the way. Experience a seamless journey from search to closing.",
+        "link": "Learn More About Us",
+        "feature1": "Exclusive Listings",
+        "feature1Desc": "Access off-market properties and hidden gems you won't find anywhere else.",
+        "feature2": "Expert Guidance",
+        "feature2Desc": "Top-tier agents dedicated to your success with deep market insights.",
+        "feature3": "Seamless Process",
+        "feature3Desc": "From initial search to final closing, we handle every detail with precision.",
+        "feature4": "24/7 Support",
+        "feature4Desc": "Our dedicated team is always available to answer your questions."
+    },
+    "featured": {
+        "subtitle": "Thinking For You",
+        "title": "Featured Properties",
+        "viewAll": "View All Properties",
+        "forSale": "For Sale",
+        "forRent": "For Rent",
+        "forSaleRent": "Sale / Rent",
+        "new": "New",
+        "beds": "Beds",
+        "baths": "Baths",
+        "sqft": "Sq Ft",
+        "mo": "/mo",
+        "notPriced": "Price upon request"
+    },
+    "footer": {
+        "description": "Connecting you with the finest properties and most experienced agents. Your journey to the perfect home starts here.",
+        "properties": "Properties",
+        "buyHome": "Buy Home",
+        "rentHome": "Rent Home",
+        "sellHome": "Sell Home",
+        "company": "Company",
+        "aboutUs": "About Us",
+        "careers": "Careers",
+        "contact": "Contact",
+        "contactUs": "Contact Us",
+        "rights": "All rights reserved."
+    },
+    "properties": {
+        "title": "{{location}} Real Estate & Homes For Sale",
+        "breadcrumbs": "Home / Search / {{location}}",
+        "allLocations": "Any Location",
+        "sortBy": "Sort by",
+        "sortNewest": "Newest Listings",
+        "sortHighToLow": "Price (High to Low)",
+        "sortLowToHigh": "Price (Low to High)",
+        "quickFilters": {
+            "price": "Price",
+            "priceSale": "Sale Price",
+            "priceRent": "Rent Price",
+            "forSale": "For Sale",
+            "forRent": "For Rent",
+            "forSaleRent": "Sale / Rent",
+            "bedsBaths": "Beds & Baths",
+            "homeType": "Home Type"
+        },
+        "sidebar": {
+            "title": "Filters",
+            "reset": "Reset All",
+            "buy": "Buy",
+            "rent": "Rent",
+            "propertyType": "Property Type",
+            "typeAll": "All Properties",
+            "typeHouses": "Houses / Apartments",
+            "typeCommercial": "Commercial",
+            "typeLand": "Land / Farms",
+            "priceRange": "Price Range",
+            "min": "$ Min",
+            "max": "$ Max",
+            "bedrooms": "Bedrooms",
+            "bathrooms": "Bathrooms",
+            "any": "All",
+            "amenities": "Amenities",
+            "pool": "Pool",
+            "garage": "Garage",
+            "garden": "Garden",
+            "waterfront": "Waterfront"
+        },
+        "tags": {
+            "casa": "House",
+            "apartamento": "Apartment",
+            "aparta estudio": "Studio Apartment",
+            "local": "Commercial Space",
+            "lote": "Lot",
+            "finca": "Farm",
+            "edificio": "Building",
+            "bodega": "Warehouse",
+            "consultorio": "Office"
+        }
+    },
+    "propertyDetails": {
+        "title": "Property Detail",
+        "showAllPhotos": "Show all",
+        "specs": {
+            "bedrooms": "Bedrooms",
+            "bathrooms": "Bathrooms",
+            "area": "Area",
+            "parking": "Parking",
+            "spots": "Spots"
+        },
+        "description": {
+            "title": "Description",
+            "showMore": "Show more",
+            "showLess": "Show less"
+        },
+        "amenities": {
+            "title": "Amenities",
+            "ac": "Air Conditioning",
+            "pool": "Swimming Pool",
+            "heating": "Central Heating",
+            "laundry": "Laundry Room",
+            "gym": "Gym",
+            "alarm": "Alarm"
+        },
+        "location": {
+            "title": "Location",
+            "openInMaps": "Open in Maps"
+        },
+        "agent": {
+            "role": "Agent",
+            "form": {
+                "name": "Name",
+                "email": "Email",
+                "phone": "Phone",
+                "message": "I'm interested in this property...",
+                "send": "Send Message",
+                "want": "Want to know more?",
+                "whatsapp": "Contact via WhatsApp",
+                "terms": "By sending, you agree to our Terms of Service"
+            }
+        },
+        "safety": {
+            "title": "Verified Property",
+            "description": "This listing has been verified by our team on-site."
+        },
+        "similar": {
+            "title": "Similar Properties"
+        }
+    }
+}
