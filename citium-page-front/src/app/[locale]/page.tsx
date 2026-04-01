@@ -10,7 +10,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     return (
         <>
             <Hero dict={dict} />
-            <AboutSection dict={dict} />
+            <AboutSection dict={dict} locale={locale} />
             <FeaturedProperties dict={dict} locale={locale} />
         </>
     );

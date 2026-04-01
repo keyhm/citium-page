@@ -14,7 +14,7 @@ export function useFavorites() {
             return [];
         }
     });
-    const [isLoaded, setIsLoaded] = useState(true);
+    const [isLoaded] = useState(true);
 
     // Save favorites to localStorage whenever they change
     useEffect(() => {
