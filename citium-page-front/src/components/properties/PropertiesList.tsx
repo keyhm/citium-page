@@ -80,17 +80,17 @@ export default function PropertiesList({ dict }: { dict: Dictionary }) {
             {isLoading ? (
                 <div className="flex flex-col items-center justify-center p-12 text-gray-400 min-h-[400px]">
                     <span className="material-symbols-outlined text-4xl animate-spin mb-4">progress_activity</span>
-                    <p>Loading properties...</p>
+                    <p>{dict.properties.loading}</p>
                 </div>
             ) : isError || !data ? (
                 <div className="flex flex-col items-center justify-center p-12 text-red-400 min-h-[400px]">
                     <span className="material-symbols-outlined text-4xl mb-4">error</span>
-                    <p>Error loading properties. Please try again.</p>
+                    <p>{dict.properties.notLoading}</p>
                 </div>
             ) : data.data.length === 0 ? (
                 <div className="flex flex-col items-center justify-center p-12 text-gray-400 min-h-[400px]">
                     <span className="material-symbols-outlined text-4xl mb-4">search_off</span>
-                    <p>No properties found.</p>
+                    <p>{dict.properties.notFound}</p>
                 </div>
             ) : (
                 <>

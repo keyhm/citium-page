@@ -28,7 +28,7 @@ export default function PropertyDetailsClientWrapper({
         return (
             <div className="flex flex-col items-center justify-center p-24 text-gray-400 min-h-[60vh]">
                 <span className="material-symbols-outlined text-4xl animate-spin mb-4">progress_activity</span>
-                <p>Loading property details...</p>
+                <p>{dict.propertyDetails.loading}</p>
             </div>
         );
     }
@@ -37,7 +37,7 @@ export default function PropertyDetailsClientWrapper({
         return (
             <div className="flex flex-col items-center justify-center p-24 text-red-500 min-h-[60vh]">
                 <span className="material-symbols-outlined text-4xl mb-4">error</span>
-                <p>Property not found or error loading details.</p>
+                <p>{dict.propertyDetails.error}</p>
                 <a href={`/${locale}/properties`} className="mt-4 text-primary font-bold hover:underline">
                     {dict?.properties?.breadcrumbs || "Back to search"}
                 </a>

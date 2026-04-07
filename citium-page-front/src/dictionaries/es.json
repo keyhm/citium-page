@@ -73,6 +73,9 @@
         "sortNewest": "Agregados Recientemente",
         "sortHighToLow": "Precio (De Mayor a Menor)",
         "sortLowToHigh": "Precio (De Menor a Mayor)",
+        "notFound": "No se encontraron propiedades.",
+        "notLoading": "Error al cargar las propiedades. Por favor, inténtalo de nuevo.",
+        "loading": "Cargando propiedades...",
         "quickFilters": {
             "price": "Precio",
             "priceSale": "Precio de Venta",
@@ -121,6 +124,8 @@
     "propertyDetails": {
         "title": "Detalles de la Propiedad",
         "showAllPhotos": "Mostrar todas",
+        "loading": "Cargando detalles de la propiedad...",
+        "error": "Propiedad no encontrada o error al cargar los detalles.",
         "specs": {
             "bedrooms": "Habitaciones",
             "bathrooms": "Baños",

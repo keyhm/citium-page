@@ -72,6 +72,9 @@
         "sortNewest": "Newest Listings",
         "sortHighToLow": "Price (High to Low)",
         "sortLowToHigh": "Price (Low to High)",
+        "notFound": "No properties found.",
+        "notLoading": "Error loading properties. Please try again.",
+        "loading": "Loading properties...",
         "quickFilters": {
             "price": "Price",
             "priceSale": "Sale Price",
@@ -120,6 +123,8 @@
     "propertyDetails": {
         "title": "Property Detail",
         "showAllPhotos": "Show all",
+        "loading": "Loading property details...",
+        "error": "Property not found or error loading details.",
         "specs": {
             "bedrooms": "Bedrooms",
             "bathrooms": "Bathrooms",

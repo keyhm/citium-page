@@ -1,6 +1,6 @@
 import { Property, PropertyCardDTO } from '@/types/property';
 
-const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
+const BASE_URL = process.env.STRAPI_BASE_URL || 'http://localhost:1337';
 
 export async function getStrapiData(url: string): Promise<any> {
         try {
