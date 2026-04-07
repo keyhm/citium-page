@@ -1,5 +1,5 @@
 
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 import { useState } from 'react';
 
 interface AgentContactFormProps {

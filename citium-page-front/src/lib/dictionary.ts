@@ -1,6 +1,7 @@
-import type { Dictionary } from '../types/types';
+import { cache } from 'react';
+import type { Dictionary } from '../types/dictionary';
 
-export const getDictionary = async (
+export const getDictionary = cache(async (
   locale: 'en' | 'es'
 ): Promise<Dictionary> => {
   const dictionaries = {
@@ -9,4 +10,4 @@ export const getDictionary = async (
   };
 
   return dictionaries[locale]();
-};
+});

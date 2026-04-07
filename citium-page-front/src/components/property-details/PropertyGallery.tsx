@@ -1,6 +1,6 @@
 'use client'
 
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 import { useState } from 'react'
 
 export default function PropertyGallery({ dict, images }: { dict: Dictionary; images: string[] }) {

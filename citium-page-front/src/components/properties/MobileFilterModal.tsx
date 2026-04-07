@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import SidebarFilter from './SidebarFilter';
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 
 type Props = {
     dict: Dictionary;

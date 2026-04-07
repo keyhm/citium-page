@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import SidebarFilter from '@/components/properties/SidebarFilter';
 import PropertiesList from '@/components/properties/PropertiesList';
 import MobileFilterModal from '@/components/properties/MobileFilterModal';
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 
 interface PropertiesClientLayoutProps {
     dict: Dictionary;

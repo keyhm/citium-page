@@ -1,5 +1,5 @@
 "use client";
-import { Dictionary } from "@/types/types";
+import { Dictionary } from "@/types/dictionary";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 export default function QuickFilters({ dict }: { dict: Dictionary }) {

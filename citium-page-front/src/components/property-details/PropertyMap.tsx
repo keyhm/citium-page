@@ -1,6 +1,6 @@
 'use client';
 
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 import dynamic from 'next/dynamic';
 
 const PropertyMapInner = dynamic(() => import('./PropertyMapInner'), {

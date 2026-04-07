@@ -1,6 +1,6 @@
-import { Dictionary } from "@/types/types";
+import { Dictionary } from "@/types/dictionary";
 
-export default function AboutSection({ dict, locale }: { dict: Dictionary ; locale: 'en' | 'es' }) {
+export default function AboutSection({ dict, locale }: { dict: Dictionary ; locale: string }) {
     return (
         <section className="bg-surface-light px-6 py-20 lg:py-28">
             <div className="mx-auto max-w-7xl">

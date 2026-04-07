@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PropertyCardDTO } from '@/types/property';
 import { formatPrice } from '@/lib/format';
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 
 interface PropertyProps extends PropertyCardDTO {
     dict: Dictionary;
@@ -71,7 +71,11 @@ export default function PropertyCard({
     // Fallback translation mapping
     const getCategoryText = () => {
         if (!dict || !dict.properties || !dict.properties.tags) return category;
-        return dict.properties.tags[category] || category;
+
+        const tagKey = category === 'estudio' ? 'aparta estudio' : category;
+        const tags = dict.properties.tags as Record<string, string>;
+
+        return tags[tagKey] || category;
     }
 
     const pathname = usePathname();

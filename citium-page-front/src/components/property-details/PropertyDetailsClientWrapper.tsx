@@ -10,7 +10,7 @@ import SimilarProperties from '@/components/property-details/SimilarProperties';
 import PropertyMap from '@/components/property-details/PropertyMap';
 import { usePropertyDetails } from '@/hooks/useProperties';
 import { useState } from 'react';
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 
 export default function PropertyDetailsClientWrapper({
     dict,
@@ -49,9 +49,10 @@ export default function PropertyDetailsClientWrapper({
     const processedProperty = {
         ...property,
         parkingText: locale === 'es' ? `${property.parking} Espacios` : `${property.parking} Spots`,
-        sqftText: locale === 'es' ? `${property.area} m²` : `${property.area} Sq Ft`,
-        description: property.description.split('\n\n')
+        sqftText: locale === 'es' ? `${property.area} m²` : `${property.area} Sq Ft`
     };
+
+    const descriptionParagraphs = property.description.split('\n\n');
 
     return (
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-10 py-6">
@@ -89,7 +90,7 @@ export default function PropertyDetailsClientWrapper({
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold text-text-main">{dict.propertyDetails?.description?.title || "Description"}</h3>
                         <div  className={`prose max-w-none text-text-muted leading-relaxed ${!expanded ? "line-clamp-5" : ""}`}>
-                            {processedProperty.description.map((p, index) => (
+                            {descriptionParagraphs.map((p, index) => (
                                 <p key={index} className={index > 0 ? "mt-4" : ""}>{p}</p>
                             ))}
                         </div>

@@ -2,7 +2,7 @@
 
 import PropertyCard from '@/components/shared/PropertyCard';
 import { useSimilarProperties } from '@/hooks/useProperties';
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 
 export default function SimilarProperties({ dict, currentId }: { dict: Dictionary, currentId: string }) {
     const { data: properties, isLoading, isError } = useSimilarProperties(currentId);

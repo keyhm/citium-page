@@ -1,4 +1,4 @@
-import { Dictionary } from "@/types/types";
+import { Dictionary } from "@/types/dictionary";
 import { Property } from "@/types/property";
 
 export default function PropertySpecs({ dict, property }: { dict: Dictionary; property: Property }) {

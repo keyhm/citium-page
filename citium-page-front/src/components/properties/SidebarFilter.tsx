@@ -4,7 +4,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useState } from "react";
 import { formatNumber, unformatNumber } from "@/lib/format";
 import QuickFilters from "./QuickFilters";
-import { Dictionary } from "@/types/types";
+import { Dictionary } from "@/types/dictionary";
 
 export default function SidebarFilter({ dict, isMobile = false }: {
     dict: Dictionary,  isMobile?: boolean;
@@ -42,9 +42,6 @@ export default function SidebarFilter({ dict, isMobile = false }: {
     const [maxPrice, setMaxPrice] = useState(() =>
         unformatNumber(searchParams.get("maxPrice") || ""),
     );
-
-    const currentType =
-        (searchParams.get("type") as "sale" | "rent" | "sale_rent") || "sale";
 
     // Apply a single filter to the URL
     const applyFilter = useCallback(
@@ -141,7 +138,7 @@ export default function SidebarFilter({ dict, isMobile = false }: {
                                     type="checkbox"
                                 />
                                 <span className="text-sm text-text-muted group-hover:text-primary transition-colors">
-                                    {dict.properties.tags?.[cat] || cat}
+                                    {dict.properties.tags?.[cat as keyof typeof dict.properties.tags] || cat}
                                 </span>
                                 <div className="ml-auto size-2 rounded-full bg-accent-blue"></div>
                             </label>

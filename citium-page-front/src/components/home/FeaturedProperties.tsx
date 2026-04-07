@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react';
 import { motion, useAnimationControls } from 'framer-motion';
 import PropertyCard from '@/components/shared/PropertyCard';
 import { useFeaturedProperties } from '@/hooks/useProperties';
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 
-export default function FeaturedProperties({ dict, locale }: { dict: Dictionary ; locale: 'en' | 'es' }) {
+export default function FeaturedProperties({ dict, locale }: { dict: Dictionary ; locale: string }) {
     const { data: properties, isLoading, isError } = useFeaturedProperties();
     const carouselControls = useAnimationControls();
     const isPausedRef = useRef(false);

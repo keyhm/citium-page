@@ -1,4 +1,4 @@
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 import Image from 'next/image';
 
 export default function Footer({ dict }: { dict: Dictionary }) {

@@ -1,5 +1,5 @@
 import { formatPrice } from '@/lib/format';
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 import { Property } from '@/types/property';
 
 export default function PropertyHeader({ dict, property }: { dict: Dictionary; property: Property }) {
@@ -24,7 +24,6 @@ export default function PropertyHeader({ dict, property }: { dict: Dictionary; p
                     </div>
                     <div className="text-right">
                         <p className="text-2xl font-bold text-primary">{formatPrice(property.price, dict?.featured?.notPriced)}</p>
-                        <p className="text-sm text-text-muted">{property.pricePerSqm}</p>
                     </div>
                 </div>
             </div>

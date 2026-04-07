@@ -32,7 +32,7 @@ export default async function RootLayout({
             </head>
             <body className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-body antialiased selection:bg-primary selection:text-white">
                 <ReactQueryProvider>
-                    <Header dict={dict} locale={locale} />
+                    <Header dict={dict} locale={locale as 'en' | 'es'} />
                     <main>
                         {children}
                     </main>

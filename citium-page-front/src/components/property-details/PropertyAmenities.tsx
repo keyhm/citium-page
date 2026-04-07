@@ -1,4 +1,4 @@
-import { Dictionary } from "@/types/types";
+import { Dictionary } from "@/types/dictionary";
 
 export default function PropertyAmenities({ dict, amenities }: { dict: Dictionary; amenities: string[] }) {
     if (!amenities || amenities.length === 0) return null;

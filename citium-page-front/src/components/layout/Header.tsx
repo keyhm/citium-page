@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import LanguageSwitcher from '../shared/LanguageSwitcher'
 import { Menu, X } from 'lucide-react'
-import { Dictionary } from '@/types/types'
+import { Dictionary } from '@/types/dictionary'
 
-export default function Header({ dict, locale }: { dict: Dictionary; locale: 'en' | 'es' }) {
+export default function Header({ dict, locale }: { dict: Dictionary; locale: 'es' | 'en' }) {
     const [open, setOpen] = useState(false)
 
     return (
@@ -45,7 +45,9 @@ export default function Header({ dict, locale }: { dict: Dictionary; locale: 'en
 
                 {/* Desktop actions */}
                 <div className="hidden md:flex items-center gap-4">
-                    <LanguageSwitcher />
+                    <Suspense fallback={<div className="w-24 h-8 bg-gray-100 rounded-lg" />}>
+                        <LanguageSwitcher />
+                    </Suspense>
 
                     <a
                         href="https://wa.me/573218911436"

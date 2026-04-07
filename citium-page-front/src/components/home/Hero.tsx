@@ -1,4 +1,4 @@
-import { Dictionary } from '@/types/types';
+import { Dictionary } from '@/types/dictionary';
 import SearchForm from './SearchForm';
 
 export default function Hero({ dict }: { dict: Dictionary }) {
@@ -7,7 +7,7 @@ export default function Hero({ dict }: { dict: Dictionary }) {
             {/* Background Image */}
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: "linear-gradient(rgba(26, 43, 72, 0.4), rgba(26, 43, 72, 0.6)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcdRf1fT6ROwAXFy4rjPriCBiJoLw7bVgu7SCHcuHxfd6XQONEB9zTXXjBDAAUrpyF-S4KhLk7fYJs3K6Sd8V9Oz74bBC5IVd0Z_J9h7NIsFY456k5eoBaH0IVvFg8SU0Mny13wjAooU4gUbb7iF4HSt6yfj3DwGdTCD-w7P0Oc8Wyc1ZyXe9iu9NiVWxRSc9nZsJ4FcpfyfsdWsr2Zdint0993YYlcwjhetalXITAHPv251YY5C9weU3jPga7U-Hu02_SF5N9SmM')" }}
+                style={{ backgroundImage: "linear-gradient(rgba(26, 43, 72, 0.4), rgba(26, 43, 72, 0.6)), url('../Viaducto-de-Cesar-Gaviria-Trujillo-en-la-ciudad-de-Pereira-800.jpg')" }}
             >
             </div>
 
