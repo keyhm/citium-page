@@ -45,7 +45,7 @@ export default function AgentContactForm({ dict, property, locale }: AgentContac
                     <img
                         alt="Agente"
                         className="w-full h-full object-cover"
-                        src="public\key-asesor.png"
+                        src="/key-asesor.jpg"
                     />
                 </div>
                 <div>
