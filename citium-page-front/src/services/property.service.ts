@@ -2,9 +2,6 @@ import { Property, PropertyCardDTO } from '@/types/property';
 
 const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
-console.log("ENV:", process.env.STRAPI_BASE_URL);
-console.log("ENV PUBLIC:", process.env.NEXT_PUBLIC_STRAPI_URL);
-
 export async function getStrapiData(url: string): Promise<any> {
         try {
             const response = await fetch(`${BASE_URL}/api/${url}`);
@@ -298,7 +295,9 @@ export const propertyService = {
                 console.debug('PropertyService query URL:', url);
             }
             const res = await fetch(url, {
-                cache: 'no-store'
+                next:{
+                    revalidate:300
+                }
             });
             if (!res.ok) throw new Error(`Strapi response error: ${res.status}`);
 
@@ -380,18 +379,20 @@ export const propertyService = {
     getFeaturedProperties: async (): Promise<PropertyCardDTO[]> => {
         try {
             const res = await fetch(`${BASE_URL}/api/properties?populate=*&pagination[limit]=3`, {
-                cache: 'no-store'
+                next:{
+                    revalidate:300
+                }
             });
             if (!res.ok) throw new Error(`Strapi response error: ${res.status}`);
 
             const json = await res.json();
             if (!json.data) return [];
+            const properties = json.data.map( mapStrapiToProperty);
+            return properties.map( mapToCardDTO );
 
-            const properties: Property[] = Array.isArray(json.data) ? json.data.map(mapStrapiToProperty) : [];
-            return properties.map(mapToCardDTO);
         } catch (error) {
             console.error("Error fetching featured properties from Strapi:", error);
-            return [];
+            throw error;
         }
     },
 
@@ -403,7 +404,9 @@ export const propertyService = {
             // Fetch excluding current ID and limiting to 3
             // In Strapi v4/v5 you can filter using id or documentId
             const res = await fetch(`${BASE_URL}/api/properties?populate=*&filters[documentId][$ne]=${currentId}&filters[id][$ne]=${currentId}&pagination[limit]=3`, {
-                cache: 'no-store'
+                next:{
+                    revalidate:300
+                }
             });
             if (!res.ok) throw new Error(`Strapi response error: ${res.status}`);
 
