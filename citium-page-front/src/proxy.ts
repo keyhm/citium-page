@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 const locales = ['en', 'es'];
-const defaultLocale = 'en';
+const defaultLocale = 'es';
 
 export function proxy(request: NextRequest) {
     // Check if there is any supported locale in the pathname
@@ -15,15 +15,16 @@ export function proxy(request: NextRequest) {
         pathname.includes('.') ||
         pathname === '/favicon.ico'
     ) {
-        return;
+        return NextResponse.next();
     }
 
     const pathnameHasLocale = locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
     );
 
-    if (pathnameHasLocale) return;
-
+    if (pathnameHasLocale) {
+        return NextResponse.next();
+    }
     // Redirect if there is no locale
     // Let's get the browser's preferred language, simple logic for now
     const acceptLanguage = request.headers.get('accept-language');

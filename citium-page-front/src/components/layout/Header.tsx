@@ -24,21 +24,15 @@ export default function Header({ dict, locale }: { dict: Dictionary; locale: 'es
 
                 {/* Desktop nav */}
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors"
-                        href={`/${locale}/properties?type=sale`}
-                    >
+                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors" href={`/${locale}/properties?type=sale`}>
                         {dict.header.buy}
                     </Link>
 
-                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors"
-                        href={`/${locale}/properties?type=rent`}
-                    >
+                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors" href={`/${locale}/properties?type=rent`}>
                         {dict.header.rent}
                     </Link>
                     
-                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors"
-                        href={`/${locale}/services`}
-                    >
+                    <Link className="text-sm font-medium text-text-main hover:text-primary transition-colors" href={`/${locale}/services`}>
                         {dict.header.services}
                     </Link>
                 </nav>

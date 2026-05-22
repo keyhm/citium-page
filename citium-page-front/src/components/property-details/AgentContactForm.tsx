@@ -45,7 +45,7 @@ export default function AgentContactForm({ dict, property, locale }: AgentContac
                     <img
                         alt="Agente"
                         className="w-full h-full object-cover"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAgwTqbQOBikBJJj_skYqng4hwqnCr9MUFk0ToF4csuHNBBs5E-43RZ-OVrbKrmYTpAyOLTD_NqGe9EIQipXyPhIPtj1oPCj7AhZ-oK6lNObPNDynILBH0iq7gDP5FuqyRHqZ25MkzmaCWuqUmyF56V-4Jb9fmeEBvEqkhqm6TSJxxtAePgCzWKI6sE0Vt_u2_Mq-2FyJW9pC3YgSHdoFXsaMqFDAlEQ0VHCWR5G99QINpdKucUli6FaFFnsZ8eJF30_0RTNBUYYs"
+                        src="public\key-asesor.png"
                     />
                 </div>
                 <div>
