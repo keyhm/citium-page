@@ -28,10 +28,30 @@ export const usePropertyDetails = (id: string) => {
  * Hook to fetch featured properties for the homepage
  */
 export const useFeaturedProperties = () => {
+
     return useQuery({
-        queryKey: ['properties', 'featured'],
-        queryFn: () => propertyService.getFeaturedProperties(),
-        staleTime: 1000 * 60 * 60, // 1 hour cache for featured
+
+        queryKey:['properties','featured'],
+
+        queryFn: () =>
+            propertyService.getFeaturedProperties(),
+
+        staleTime:1000*60*60,
+
+        gcTime:1000*60*60*2,
+
+        retry:3,
+
+        retryDelay:(attempt)=>
+            Math.min(
+                1000 * 2 ** attempt,
+                8000
+            ),
+
+        refetchOnReconnect:true,
+
+        refetchOnWindowFocus:false
+
     });
 };
 

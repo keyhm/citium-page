@@ -22,6 +22,7 @@ export default function PropertyMapInner({ dict, location, coordinates }: { dict
 
     // Fallback coordinates if not provided (e.g., New York)
     const position: [number, number] = coordinates || [40.7128, -74.0060];
+    const mapsUrl = `https://www.google.com/maps?q=${position[0]},${position[1]}`;
 
     useEffect(() => {
         // cleanup leaflet on unmount if needed
@@ -31,7 +32,7 @@ export default function PropertyMapInner({ dict, location, coordinates }: { dict
         <div className="space-y-4 pt-6 border-t border-gray-200">
             <div className="flex justify-between items-center">
                 <h3 className="text-xl font-bold text-text-main">{dict.propertyDetails.location.title}</h3>
-                <button onClick={() => window.open(`https://www.google.com/maps?q=${encodeURIComponent(location)}`, '_blank')} className="text-primary text-sm font-semibold hover:underline">
+                <button onClick={() => window.open(mapsUrl, '_blank')} className="text-primary text-sm font-semibold hover:underline cursor-pointer">
                     {dict.propertyDetails.location.openInMaps}
                 </button>
             </div>

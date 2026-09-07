@@ -3,16 +3,22 @@ import type { Core } from '@strapi/strapi';
 const config: Core.Config.Middlewares = [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
-  {
-    name: 'strapi::cors',
+    {
+    name: 'strapi::security',
     config: {
-      origin: ['*'],
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-      headers: '*',
-      credentials: true,
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', '://cloudinary.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', '://cloudinary.com'],
+          upgradeInsecureRequests: null,
+        },
+      },
     },
   },
+,
+  'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
